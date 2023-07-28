@@ -51,6 +51,14 @@ public class MustafaPage extends Base {
     @FindBy(xpath = "(//label[@for='pwd'])[7]")
     private WebElement noteElement;
 
+    //Front Office -> ComplainTab -> DrogAndDrop
+    @FindBy(xpath = "//div[@class='dropify-wrapper']")
+    public WebElement drogAndDropElementi;
+
+    //Front Office -> ComplainTab -> SaveButton
+    @FindBy(id = "submitbtn")
+    public WebElement saveButton;
+
     public void elementsDisplayedMethod(){
         Assert.assertTrue(complaintTypeElement.isDisplayed());
         Assert.assertTrue(complainByElement.isDisplayed());

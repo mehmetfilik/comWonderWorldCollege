@@ -80,7 +80,7 @@ public class CommonPage extends Base {
         submitButton.click();
     }
 
-    public void admintLoginMethod (String adminEmail, String password){
+    public void adminLoginMethod (String adminEmail, String password){
         Driver.getDriver().get(ConfigReader.getProperty("adminLoginUrl"));
         adminLoginButton.click();
         ReusableMethods.switchToWindow("Login : Wonder World College");
