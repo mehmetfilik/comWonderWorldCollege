@@ -80,7 +80,7 @@ public class CommonPage extends Base {
         submitButton.click();
     }
 
-    public void admintLoginMethod (String adminEmail, String password){
+    public void adminLoginMethod (String adminEmail, String password){
         Driver.getDriver().get(ConfigReader.getProperty("adminLoginUrl"));
         adminLoginButton.click();
         ReusableMethods.switchToWindow("Login : Wonder World College");
@@ -89,11 +89,11 @@ public class CommonPage extends Base {
         signInButton.click();
     }
 
-    public void teacherLoginMethod (String username, String password){
+    public void teacherLoginMethod (String teacherEmail, String password){
         Driver.getDriver().get(ConfigReader.getProperty("adminLoginUrl"));
         adminLoginButton.click();
         ReusableMethods.switchToWindow("Login : Wonder World College");
-        adminEmailBox.sendKeys(username);
+        adminEmailBox.sendKeys(teacherEmail);
         adminPasswordBox.sendKeys(password);
         signInButton.click();
     }
