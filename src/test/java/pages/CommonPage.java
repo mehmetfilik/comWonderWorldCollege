@@ -7,6 +7,7 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class CommonPage extends Base {
+  
     // Homepage -> Login Button
     @FindBy(xpath = "//a[@class='complainbtn']")
     private WebElement loginButton;
@@ -31,7 +32,6 @@ public class CommonPage extends Base {
     @FindBy(id = "form-username")
     private WebElement adminEmailBox;
 
-
     //Admin Login Page -> passwordBox
     @FindBy(id = "form-password")
     private WebElement adminPasswordBox;
@@ -39,8 +39,29 @@ public class CommonPage extends Base {
     // Admin Login Page -> signInButton
     @FindBy(xpath = "//button[@class='btn']")
     private WebElement signInButton;
+    
+    // userlogin > User Login Title
+    @FindBy(xpath = "(//h3)[1]")
+    private WebElement userLoginTitle;
 
+    // userlogin > What's New In Wonder World College Title
+    @FindBy(xpath = "(//h3)[2]")
+    private WebElement whatsNewTitle;
 
+    // userlogin > Forgot Password Button
+    @FindBy(xpath = "//*[@class='forgot']")
+    private WebElement forgotButton;
+
+    // userlogin > Front Site Button
+    @FindBy(linkText = "//div[2]/p[2]/a")
+    private WebElement frontSiteButton;
+  
+  
+  
+  
+  
+
+//-----------------------------------------------------------------------------------------------------------
 
 
     public void parentLoginMethod (String username, String password){
