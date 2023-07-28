@@ -63,6 +63,34 @@ public class CommonPage extends Base {
 
 //-----------------------------------------------------------------------------------------------------------
 
+    public void navigateToHomepage(){
+        Driver.getDriver().get(ConfigReader.getProperty("wonderUrl"));
+    }
+
+    public void navigateToAdminLoginUrl(){
+        Driver.getDriver().get(ConfigReader.getProperty("adminLoginUrl"));
+    }
+
+    public void verifyAndClickOnTheLoginButtonOnTheHomepage(){
+        loginButton.isDisplayed();
+        loginButton.click();
+    }
+
+    public void loginUsername(String username){
+        emailBox.sendKeys(ConfigReader.getProperty(username));
+    }
+
+    public void loginPassword(String password){
+        passwordBox.sendKeys(ConfigReader.getProperty(password));
+    }
+
+    public void clickSignInButton(){
+        signInButton.click();
+    }
+
+    public void closeTheBrowser() {
+        Driver.quitDriver();
+    }
 
     public void parentLoginMethod (String username, String password){
         Driver.getDriver().get(ConfigReader.getProperty("wonderUrl"));

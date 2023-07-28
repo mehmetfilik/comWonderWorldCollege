@@ -1,7 +1,7 @@
 
 Feature: [US_033] As an administrator (teacher), I want to access students' exam results.
 
-  @test
+  @test2
   Scenario: [TC_001-->US_033] Verification of "Exam Result" Page Link in the Teacher Panel's Sidebar
 
 
