@@ -4,6 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class CommonPage extends Base {
     // Homepage -> Login Button
@@ -58,10 +59,11 @@ public class CommonPage extends Base {
         submitButton.click();
     }
 
-    public void admintLoginMethod (String username, String password){
+    public void admintLoginMethod (String adminEmail, String password){
         Driver.getDriver().get(ConfigReader.getProperty("adminLoginUrl"));
         adminLoginButton.click();
-        adminEmailBox.sendKeys(username);
+        ReusableMethods.switchToWindow("Login : Wonder World College");
+        adminEmailBox.sendKeys(adminEmail);
         adminPasswordBox.sendKeys(password);
         signInButton.click();
     }
@@ -69,6 +71,7 @@ public class CommonPage extends Base {
     public void teacherLoginMethod (String username, String password){
         Driver.getDriver().get(ConfigReader.getProperty("adminLoginUrl"));
         adminLoginButton.click();
+        ReusableMethods.switchToWindow("Login : Wonder World College");
         adminEmailBox.sendKeys(username);
         adminPasswordBox.sendKeys(password);
         signInButton.click();

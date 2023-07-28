@@ -7,12 +7,14 @@ import pages.MustafaPage;
 
 public class MustafaStepdefinition {
 
-    CommonPage common=new CommonPage();
-    MustafaPage mustafa=new MustafaPage();
+    CommonPage common = new CommonPage();
+    MustafaPage mustafa = new MustafaPage();
 
     @Given("User goes to {string} page")
     public void user_goes_to_page(String string) {
+        common.admintLoginMethod("mustafa.ozsamur@admin.wonderworldcollege.com","wonderworld123");
     }
+
     @Then("Click on the Admin Login Button.")
     public void click_on_the_admin_login_button() {
 
@@ -25,12 +27,22 @@ public class MustafaStepdefinition {
     public void enter_valid_email_and_password_in_the_email_and_password_boxes() {
 
     }
-    @Then("Click on the {string} button.")
-    public void click_on_the_button(String string) {
+    @Then("Click on the Sign in button.")
+    public void click_on_the_sign_in_button() {
 
     }
-    @Then("Click on the {string} link.")
-    public void click_on_the_link(String string) {
+    @Then("Click on the Front Office button.")
+    public void click_on_the_front_office_button() {
+      mustafa.frontOfficeTab.click();
+    }
+    @Then("Click on the Complein link.")
+    public void click_on_the_complein_link() {
 
     }
+
 }
+
+
+
+
+
