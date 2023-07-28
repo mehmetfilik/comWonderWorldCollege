@@ -12,6 +12,11 @@ public class FilikStepdefinition {
     public void user_should_navigate_to_the(String url) {
         filikPage.navigateToHomepage();
     }
+    @Then("Verification of {string} Window and {string} Information on User Login Page")
+    public void verificationOfWindowAndInformationOnUserLoginPage(String user, String wonder) {
+
+    }
+
     @Then("Verification of Visibility of the Login Button on the Homepage")
     public void verification_of_visibility_of_the_login_button_on_the_homepage() {
 
@@ -20,4 +25,6 @@ public class FilikStepdefinition {
     public void verification_of_user_redirection_to_the_page_upon_clicking_the_login_button(String string) {
 
     }
+
+
 }
