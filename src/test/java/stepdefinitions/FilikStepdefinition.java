@@ -1,30 +1,62 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.CommonPage;
 import pages.FilikPage;
 
 public class FilikStepdefinition {
 
     FilikPage filikPage = new FilikPage();
+    CommonPage commonPage = new CommonPage();
 
-    @Then("User Should Navigate to the {string}")
-    public void user_should_navigate_to_the(String url) {
-        filikPage.navigateToHomepage();
-    }
-    @Then("Verification of {string} Window and {string} Information on User Login Page")
-    public void verificationOfWindowAndInformationOnUserLoginPage(String user, String wonder) {
 
+    @Then("User Should Navigate to homepage")
+    public void userShouldNavigateToHomepage() {
+        commonPage.navigateToHomepage();
     }
 
-    @Then("Verification of Visibility of the Login Button on the Homepage")
-    public void verification_of_visibility_of_the_login_button_on_the_homepage() {
-
-    }
-    @When("Verification of User Redirection to the {string} Page upon Clicking the Login Button")
-    public void verification_of_user_redirection_to_the_page_upon_clicking_the_login_button(String string) {
-
+    @Then("Verify and Click on the Login Button on the Homepage")
+    public void verifyAndClickOnTheLoginButtonOnTheHomepage() {
+        commonPage.verifyAndClickOnTheLoginButtonOnTheHomepage();
     }
 
+    @When("Verification of User Redirection to the User Login Page upon Clicking the Login Button")
+    public void verificationOfUserRedirectionToTheUserLoginPageUponClickingTheLoginButton() {
+        filikPage.verificationOfWindowAndInformationOnUserLoginPage();
+    }
 
+
+    @And("User Logs in with {string} and {string}")
+    public void userLogsInWithAnd(String username, String password) {
+        commonPage.loginUsername(username);
+        commonPage.loginPassword(password);
+        commonPage.clickSignInButton();
+    }
+
+    @And("Verify and Click on the Forgot Password Button on the User Login Page")
+    public void verifyAndClickOnTheForgotPasswordButtonOnTheUserLoginPage() {
+        filikPage.verifyAndClickOnTheForgotPasswordButtonOnTheUserLoginPage();
+    }
+
+    @And("Verify Password Reset Functionality on the Forgot Password Page")
+    public void verifyPasswordResetFunctionalityOnTheForgotPasswordPage() {
+        filikPage.verifyPasswordResetFunctionalityOnTheForgotPasswordPage();
+    }
+
+    @And("Verify and Click on the User Login Button on the Forgot Password Page")
+    public void verifyAndClickOnTheUserLoginButtonOnTheForgotPasswordPage() {
+        filikPage.verifyAndClickOnTheUserLoginButtonOnTheForgotPasswordPage();
+    }
+
+    @And("Verify and Click on the Front Site Button on the User Login Page")
+    public void verifyAndClickOnTheFrontSiteButtonOnTheUserLoginPage() {
+        filikPage.forgotPasswordMethod();
+    }
+
+    @Then("Close the browser")
+    public void closeTheBrowser() {
+        commonPage.closeTheBrowser();
+    }
 }

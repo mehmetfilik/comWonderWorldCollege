@@ -1,7 +1,7 @@
 
 Feature: [US_018] As an administrator (admin), I want an admin panel to be available for performing administrative tasks, and I want to be able to log in to the admin panel with registered email and password.
 
-  @test
+  @test1
   Scenario: [TC_001-->US_018] Verification of Accessible URL for School Panels
 
 

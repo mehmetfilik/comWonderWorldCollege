@@ -59,7 +59,7 @@ public class CommonPage extends Base {
     // Homapage TeacherLogin Button
     @FindBy(xpath = "//i[@class='fa fa-user-plus']")
     private WebElement teacherLoginButton;
-
+   
     // Teacher Login Page -> EmailBox
     @FindBy(id = "form-username")
     private WebElement teacherEmailBox;
@@ -67,6 +67,12 @@ public class CommonPage extends Base {
     //Teacher Login Page -> passwordBox
     @FindBy(id = "form-password")
     private WebElement teacherPasswordBox;
+  
+  
+  
+  //-------------------------------------------------------------------------------------------------------------------
+  
+  
 
     public void parentOrStudentLoginMethod (String username, String password){
         Driver.getDriver().get(ConfigReader.getProperty("wonderUrl"));
@@ -93,4 +99,35 @@ public class CommonPage extends Base {
         teacherPasswordBox.sendKeys(password);
         signInButton.click();
     }
+  
+     public void navigateToHomepage(){
+        Driver.getDriver().get(ConfigReader.getProperty("wonderUrl"));
+    }
+
+    public void navigateToAdminLoginUrl(){
+        Driver.getDriver().get(ConfigReader.getProperty("adminLoginUrl"));
+    }
+
+    public void verifyAndClickOnTheLoginButtonOnTheHomepage(){
+        loginButton.isDisplayed();
+        loginButton.click();
+    }
+
+    public void loginUsername(String username){
+        emailBox.sendKeys(ConfigReader.getProperty(username));
+    }
+
+    public void loginPassword(String password){
+        passwordBox.sendKeys(ConfigReader.getProperty(password));
+    }
+
+    public void clickSignInButton(){
+        signInButton.click();
+    }
+
+    public void closeTheBrowser() {
+        Driver.quitDriver();
+    }
+  
+  
 }
