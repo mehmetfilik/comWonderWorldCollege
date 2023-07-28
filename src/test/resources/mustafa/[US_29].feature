@@ -13,3 +13,5 @@ Feature: [US_29] Complaints page test
 
     And Click on the Front Office button.
     And Click on the Complein link.
+    And Verifies that Complain Type, Source dropdown menus and Phone, Date, Description, Action Taken, Assigned, Note textBoxes appear.
+

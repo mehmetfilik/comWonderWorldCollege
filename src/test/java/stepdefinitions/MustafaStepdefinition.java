@@ -1,7 +1,9 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import pages.MustafaPage;
 
@@ -9,6 +11,7 @@ public class MustafaStepdefinition {
 
     CommonPage common = new CommonPage();
     MustafaPage mustafa = new MustafaPage();
+
 
     @Given("User goes to {string} page")
     public void user_goes_to_page(String string) {
@@ -33,13 +36,23 @@ public class MustafaStepdefinition {
     }
     @Then("Click on the Front Office button.")
     public void click_on_the_front_office_button() {
-      mustafa.frontOfficeTab.click();
+        mustafa.frontOfficeTab.click();
+
+
+
+
     }
     @Then("Click on the Complein link.")
     public void click_on_the_complein_link() {
+        mustafa.complainTab.click();
+
 
     }
 
+    @And("Verifies that Complain Type, Source dropdown menus and Phone, Date, Description, Action Taken, Assigned, Note textBoxes appear.")
+    public void verifiesThatComplainTypeSourceDropdownMenusAndPhoneDateDescriptionActionTakenAssignedNoteTextBoxesAppear() {
+        mustafa.elementsDisplayedMethod();
+    }
 }
 
 
