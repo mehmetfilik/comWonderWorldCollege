@@ -12,7 +12,7 @@ public class CommonPage extends Base {
     @FindBy(xpath = "//a[@class='complainbtn']")
     private WebElement loginButton;
 
-    // Parent LoginPage -> Email Box
+    // User-Parent LoginPage -> Email Box
     @FindBy(id = "email")
     private WebElement emailBox;
 
@@ -36,7 +36,7 @@ public class CommonPage extends Base {
     @FindBy(id = "form-password")
     private WebElement adminPasswordBox;
 
-    // Admin Login Page -> signInButton
+    // Admin and Teacher Login Page -> signInButton
     @FindBy(xpath = "//button[@class='btn']")
     private WebElement signInButton;
     
@@ -55,15 +55,52 @@ public class CommonPage extends Base {
     // userlogin > Front Site Button
     @FindBy(linkText = "//div[2]/p[2]/a")
     private WebElement frontSiteButton;
+
+    // Homapage TeacherLogin Button
+    @FindBy(xpath = "//i[@class='fa fa-user-plus']")
+    private WebElement teacherLoginButton;
+   
+    // Teacher Login Page -> EmailBox
+    @FindBy(id = "form-username")
+    private WebElement teacherEmailBox;
+
+    //Teacher Login Page -> passwordBox
+    @FindBy(id = "form-password")
+    private WebElement teacherPasswordBox;
   
   
   
+  //-------------------------------------------------------------------------------------------------------------------
   
   
 
-//-----------------------------------------------------------------------------------------------------------
+    public void parentOrStudentLoginMethod (String username, String password){
+        Driver.getDriver().get(ConfigReader.getProperty("wonderUrl"));
+        loginButton.click();
+        emailBox.sendKeys(username);
+        passwordBox.sendKeys(password);
+        submitButton.click();
+    }
 
-    public void navigateToHomepage(){
+    public void adminLoginMethod (String adminEmail, String password){
+        Driver.getDriver().get(ConfigReader.getProperty("adminLoginUrl"));
+        adminLoginButton.click();
+        ReusableMethods.switchToWindow("Login : Wonder World College");
+        adminEmailBox.sendKeys(adminEmail);
+        adminPasswordBox.sendKeys(password);
+        signInButton.click();
+    }
+
+    public void teacherLoginMethod (String teacherEmail, String password){
+        Driver.getDriver().get(ConfigReader.getProperty("teacherLoginUrl"));
+        teacherLoginButton.click();
+        ReusableMethods.switchToWindow("Login : Wonder World College");
+        teacherEmailBox.sendKeys(teacherEmail);
+        teacherPasswordBox.sendKeys(password);
+        signInButton.click();
+    }
+  
+     public void navigateToHomepage(){
         Driver.getDriver().get(ConfigReader.getProperty("wonderUrl"));
     }
 
@@ -91,40 +128,6 @@ public class CommonPage extends Base {
     public void closeTheBrowser() {
         Driver.quitDriver();
     }
-
-    public void parentLoginMethod (String username, String password){
-        Driver.getDriver().get(ConfigReader.getProperty("wonderUrl"));
-        loginButton.click();
-        emailBox.sendKeys(username);
-        passwordBox.sendKeys(password);
-        submitButton.click();
-    }
-
-    public void studentLoginMethod (String username, String password){
-        Driver.getDriver().get(ConfigReader.getProperty("wonderUrl"));
-        loginButton.click();
-        emailBox.sendKeys(username);
-        passwordBox.sendKeys(password);
-        submitButton.click();
-    }
-
-    public void admintLoginMethod (String adminEmail, String password){
-        Driver.getDriver().get(ConfigReader.getProperty("adminLoginUrl"));
-        adminLoginButton.click();
-        ReusableMethods.switchToWindow("Login : Wonder World College");
-        adminEmailBox.sendKeys(adminEmail);
-        adminPasswordBox.sendKeys(password);
-        signInButton.click();
-    }
-
-    public void teacherLoginMethod (String username, String password){
-        Driver.getDriver().get(ConfigReader.getProperty("adminLoginUrl"));
-        adminLoginButton.click();
-        ReusableMethods.switchToWindow("Login : Wonder World College");
-        adminEmailBox.sendKeys(username);
-        adminPasswordBox.sendKeys(password);
-        signInButton.click();
-    }
-
-
+  
+  
 }
