@@ -36,7 +36,7 @@ public class CommonPage extends Base {
     @FindBy(id = "form-password")
     private WebElement adminPasswordBox;
 
-    // Admin Login Page -> signInButton
+    // Admin and Teacher Login Page -> signInButton
     @FindBy(xpath = "//button[@class='btn']")
     private WebElement signInButton;
     
@@ -61,7 +61,22 @@ public class CommonPage extends Base {
   
   
 
-//-----------------------------------------------------------------------------------------------------------
+    // Homapage TeacherLogin Button
+    @FindBy(xpath = "//i[@class='fa fa-user-plus']")
+    private WebElement teacherLoginButton;
+
+    // Teacher Login Page -> EmailBox
+    @FindBy(id = "form-username")
+    private WebElement teacherEmailBox;
+
+    //Teacher Login Page -> passwordBox
+    @FindBy(id = "form-password")
+    private WebElement teacherPasswordBox;
+
+
+
+
+
 
 
     public void parentLoginMethod (String username, String password){
