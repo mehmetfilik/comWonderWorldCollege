@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import pages.MustafaPage;
+import utilities.Driver;
 
 public class MustafaStepdefinition {
 
@@ -52,6 +53,12 @@ public class MustafaStepdefinition {
     @And("Verifies that Complain Type, Source dropdown menus and Phone, Date, Description, Action Taken, Assigned, Note textBoxes appear.")
     public void verifiesThatComplainTypeSourceDropdownMenusAndPhoneDateDescriptionActionTakenAssignedNoteTextBoxesAppear() {
         mustafa.elementsDisplayedMethod();
+    }
+
+    @Then("user closes browser")
+    public void userClosesBrowser() {
+
+        Driver.closeDriver();
     }
 }
 
