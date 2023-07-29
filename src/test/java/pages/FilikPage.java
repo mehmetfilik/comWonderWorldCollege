@@ -1,5 +1,6 @@
 package pages;
 
+import io.cucumber.java.en.And;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utilities.ConfigReader;
@@ -14,6 +15,7 @@ public class FilikPage extends Base {
 
     CommonPage commonPage = new CommonPage();
 
+    // userlogin > User Login Title
     @FindBy(xpath = "(//h3)[1]")
     private WebElement userLoginTitle;
 
@@ -54,6 +56,35 @@ public class FilikPage extends Base {
     private WebElement invalidEmailAlert;
 
 
+    // ufpassword -> Invalid Email Or User Type
+    @FindBy(xpath = "//div[@class='alert alert-success']")
+    private WebElement validEmailAlert;
+
+    // adminlogin > Admin Login Title
+    @FindBy(xpath = "(//h3)[1]")
+    private WebElement adminLoginTitle;
+
+    // User-Parent LoginPage -> Email Box
+    @FindBy(id = "email")
+    private WebElement emailBox;
+
+    // Parent LoginPage -> Password Box
+    @FindBy(id = "password")
+    private WebElement passwordBox;
+
+    // Admin Login Page -> EmailBox
+    @FindBy(id = "form-username")
+    private WebElement adminEmailBox;
+
+    //Admin Login Page -> passwordBox
+    @FindBy(id = "form-password")
+    private WebElement adminPasswordBox;
+
+    // Admin and Teacher Login Page -> signInButton
+    @FindBy(xpath = "//button[@class='btn']")
+    private WebElement signInButton;
+
+
 
 //-------------------------------------------------------------------------------------
 
@@ -62,6 +93,23 @@ public class FilikPage extends Base {
     public void verificationOfWindowAndInformationOnUserLoginPage(){
         userLoginTitle.isDisplayed();
         whatsNewTitle.isDisplayed();
+        emailBox.isDisplayed();
+        emailBox.isEnabled();
+        passwordBox.isDisplayed();
+        passwordBox.isEnabled();
+        submitButton.isDisplayed();
+        forgotButton.isDisplayed();
+        frontSiteButton.isDisplayed();
+        userLoginButton.isDisplayed();
+
+    }
+
+    public void verifyStudentParentDashboardPage(){
+        assertEquals(ConfigReader.getProperty("userDashboardUrl"),Driver.getDriver().getCurrentUrl());
+    }
+
+    public void verifyAdminDashboardPage(){
+        assertEquals(ConfigReader.getProperty("adminDashboardUrl"),Driver.getDriver().getCurrentUrl());
     }
 
     public void verifyAndClickOnTheForgotPasswordButtonOnTheUserLoginPage() {
@@ -70,7 +118,14 @@ public class FilikPage extends Base {
         assertEquals(ConfigReader.getProperty("ufpasswordUrl"),Driver.getDriver().getCurrentUrl());
     }
 
-    public void verifyPasswordResetFunctionalityOnTheForgotPasswordPage() {
+    @And("Verify and Click on the Forgot Password Button on the Admin Login Page")
+    public void verifyAndClickOnTheForgotPasswordButtonOnTheAdminLoginPage() {
+        forgotButton.isDisplayed();
+        forgotButton.click();
+        assertEquals(ConfigReader.getProperty("forgotpasswordUrl"),Driver.getDriver().getCurrentUrl());
+    }
+
+    public void verifyPasswordResetFunctionalityOnTheUserForgotPasswordPage() {
         forgotEmailBox.isDisplayed();
         forgotEmailBox.isEnabled();
         studentRadioButton.isDisplayed();
@@ -79,9 +134,20 @@ public class FilikPage extends Base {
         forgotEmailBox.sendKeys(ConfigReader.getProperty("validFilikEmail"));
         studentRadioButton.click();
         submitButton.click();
-        String actualAlertText = invalidEmailAlert.getText();
         ReusableMethods.bekle(2);
+        String actualAlertText = invalidEmailAlert.getText();
         assertTrue(actualAlertText.contains("Invalid Email Or User Type"));
+    }
+
+    public void verifyPasswordResetFunctionalityOnTheAdminForgotPasswordPage() {
+        forgotEmailBox.isDisplayed();
+        forgotEmailBox.isEnabled();
+        submitButton.isDisplayed();
+        forgotEmailBox.sendKeys(ConfigReader.getProperty("validFilikAdminEmail"));
+        submitButton.click();
+        ReusableMethods.bekle(2);
+        String actualAlertText = validEmailAlert.getText();
+        assertTrue(actualAlertText.contains("Please Check Your Email To Recover Your Password"));
     }
 
     public void verifyAndClickOnTheUserLoginButtonOnTheForgotPasswordPage() {
@@ -108,6 +174,19 @@ public class FilikPage extends Base {
         ReusableMethods.switchToWindow("Home");
         assertEquals(ConfigReader.getProperty("wonderUrl"),Driver.getDriver().getCurrentUrl());
 
+    }
+
+    public void verificationOfWindowAndInformationOnAdminLoginPage(){
+        adminLoginTitle.isDisplayed();
+        whatsNewTitle.isDisplayed();
+        adminEmailBox.isDisplayed();
+        adminEmailBox.isEnabled();
+        adminPasswordBox.isDisplayed();
+        adminPasswordBox.isEnabled();
+        signInButton.isDisplayed();
+        forgotButton.isDisplayed();
+        frontSiteButton.isDisplayed();
+        userLoginButton.isDisplayed();
     }
 
 }
