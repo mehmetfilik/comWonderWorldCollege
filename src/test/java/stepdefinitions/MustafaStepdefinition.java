@@ -63,7 +63,7 @@ public class MustafaStepdefinition {
     @Then("user closes browser")
     public void userClosesBrowser() {
 
-  //      Driver.closeDriver();
+        Driver.closeDriver();
     }
 
     @Given("The user clicks on the Drag and drop link and uploads the file.")

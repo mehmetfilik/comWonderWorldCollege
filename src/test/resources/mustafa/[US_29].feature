@@ -1,4 +1,4 @@
-
+@tc1
 Feature: [US_29] Complaints page test
 
   Background:
@@ -17,7 +17,7 @@ Feature: [US_29] Complaints page test
     Given Verifies that Complain Type, Source dropdown menus and Phone, Date, Description, Action Taken, Assigned, Note textBoxes appear.
     Then user closes browser
 
-  @tc1
+
   Scenario: [US_29->TC_002] Document upload test
     Given The user clicks on the Drag and drop link and uploads the file.
     Then user closes browser
