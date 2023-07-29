@@ -128,6 +128,20 @@ public class CommonPage extends Base {
     public void closeTheBrowser() {
         Driver.quitDriver();
     }
-  
-  
+
+    public void clickAdminLoginButton(){
+        adminLoginButton.click();
+        ReusableMethods.switchToWindow("Login : Wonder World College");
+    }
+
+    public void adminLoginUsername(String username){
+        adminEmailBox.sendKeys(ConfigReader.getProperty(username));
+    }
+
+    public void adminLoginPassword(String password){
+        adminPasswordBox.sendKeys(ConfigReader.getProperty(password));
+    }
+
+
+
 }
