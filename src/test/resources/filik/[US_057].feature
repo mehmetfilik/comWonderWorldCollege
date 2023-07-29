@@ -1,7 +1,7 @@
 
 Feature: [US_057] As a user, I should be able to access the Fees page and make necessary changes When entering the Parent Panel
 
-  @test
+  @test3
   Scenario: [TC_001-->US_057] Checking the "Student Feeds" page
 
 
