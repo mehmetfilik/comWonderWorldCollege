@@ -5,10 +5,10 @@ Scenario: [TC_001-->US_023] Verify Student Details and Search Page
   Then User goes to "adminLoginUrl"
   Given User clicks on the "Admin Login" button
   Then The user enters the email and password and clicks the sign in button.
-  When User verifies that the "Student Details" link is visible under the "Student Information" section in the admin page
-  And User clicks on the "Student Details" link
+  When User verifies that the Student Details link is visible under the Student Information section in the admin page
+  And User clicks on the Student Details link
   Then User is redirected to the search page
-  And Search page displays Class and Section dropdowns and 2 search buttons which are visible and active
+  And Search page displays Class and Section dropdowns and two search buttons which are visible and active
 
   Scenario: Verify Student Search Results
     Given User performs a search in the Class and Section dropdowns based on pre-condition
