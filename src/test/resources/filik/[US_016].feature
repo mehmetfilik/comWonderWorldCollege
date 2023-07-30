@@ -14,6 +14,7 @@ Feature: [US_016] As a registered user (student/parent), I want to have access t
     Then User Should Navigate to homepage
     Then Verify and Click on the Login Button on the Homepage
     And User Logs in with "validFilikEmail" and "validFilikPassword"
+    And verify StudentParent Dashboard Page
     Then Close the browser
 
   @test
@@ -21,6 +22,7 @@ Feature: [US_016] As a registered user (student/parent), I want to have access t
     Then User Should Navigate to homepage
     Then Verify and Click on the Login Button on the Homepage
     And User Logs in with "invalidFilikEmail" and "invalidFilikPassword"
+
     Then Close the browser
 
   @test
