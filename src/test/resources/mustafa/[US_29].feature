@@ -1,4 +1,4 @@
-@tc1
+@us029
 Feature: [US_29] Complaints page test
 
   Background:
@@ -26,6 +26,7 @@ Feature: [US_29] Complaints page test
     Given On the User Complaint page, enters data in the boxes in the Add Complaint window
     Then Click on the "Save" button.
     And verifies that a grievance record has been created.
+    And The user closes the page
 
 
   Scenario:[TC_004->US_29] Complain, Complain Type, Name, Phone, Date, Action titles) should be displayed.
@@ -40,10 +41,16 @@ Feature: [US_29] Complaints page test
 
 
 
-  Scenario:[TC_006->US_29]
+  Scenario:[TC_006->US_29] Admin should be able to update complaint information
     Given User, click on the Edit  icon under the Action heading.
     Then The user makes changes to the complaint data.
     And The user clicks the save button.
     Then The user should verify that the complaint information is updated.
+    And The user closes the page
+
+
+  Scenario:[TC_007->US_29] Admin should be able to delete the complaint
+    Given The user clicks on the delete icon under Action.
+    Then user confirms that the complaint has been deleted.
     And The user closes the page
 
