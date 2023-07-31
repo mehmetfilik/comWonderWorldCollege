@@ -11,7 +11,7 @@ import java.util.Set;
 
 import static org.junit.Assert.*;
 
-public class FilikPage extends Base {
+public class                                                                                                                                                                                                                                                                                   FilikPage extends Base {
 
     CommonPage commonPage = new CommonPage();
 

@@ -12,6 +12,10 @@ public class MustafaPage extends Base {
 
     Select select;
 
+    //*****************************[US_029]***********************************//
+
+
+
     // Admin Panel-> Front Office tab
     @FindBy(xpath = "//span[text()='Front Office']")
     public WebElement frontOfficeTab;
@@ -144,13 +148,16 @@ public class MustafaPage extends Base {
     @FindBy(xpath = "(//button[@type='submit'])[3]")
     public WebElement saveButton2;
 
+
+    //******************************METHODS***************************************//
+
+
     public void viewButtonclick() {
         viewButton.click();
     }
 
 
     public void detailsTextElementAssert() {
-
         Assert.assertTrue(detailsTextElement.isEnabled());
     }
 
@@ -170,17 +177,15 @@ public class MustafaPage extends Base {
     public void complainCreationMethod() {
         select = new Select(complainTypeBox);
         select.selectByVisibleText("Teacher ");
-
         select = new Select(sourceBox);
         select.selectByVisibleText("Online Front Site");
-
         complainByBox.sendKeys("Mustafa Özsamur");
         phoneBox.sendKeys("+90564789876");
-        // dateBox.click();
-        // activeDayElement.click();
         descriptionBox.sendKeys("the teacher's lecture is bad and he does not know the subjects");
         saveButton.click();
     }
+
+
 
     public void elementsDisplayedMethod() {
         Assert.assertTrue(complaintTypeElement.isDisplayed());
@@ -194,6 +199,8 @@ public class MustafaPage extends Base {
         Assert.assertTrue(sourceElement.isDisplayed());
         Assert.assertTrue(saveButton.isDisplayed());
     }
+
+
 
     public void complainHeaderElementTestMethod() {
         Assert.assertTrue(compleinTitle.isDisplayed());
