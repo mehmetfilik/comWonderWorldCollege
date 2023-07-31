@@ -1,29 +1,136 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.CommonPage;
 import pages.FilikPage;
+import utilities.ConfigReader;
+import utilities.Driver;
+
+import static org.junit.Assert.assertEquals;
 
 public class FilikStepdefinition {
 
     FilikPage filikPage = new FilikPage();
+    CommonPage commonPage = new CommonPage();
 
-    @Then("User Should Navigate to the {string}")
-    public void user_should_navigate_to_the(String url) {
-        filikPage.navigateToHomepage();
-    }
-    @Then("Verification of {string} Window and {string} Information on User Login Page")
-    public void verificationOfWindowAndInformationOnUserLoginPage(String user, String wonder) {
 
+    @Then("User Should Navigate to homepage")
+    public void userShouldNavigateToHomepage() {
+        commonPage.navigateToHomepage();
     }
 
-    @Then("Verification of Visibility of the Login Button on the Homepage")
-    public void verification_of_visibility_of_the_login_button_on_the_homepage() {
+    @Then("Verify and Click on the Login Button on the Homepage")
+    public void verifyAndClickOnTheLoginButtonOnTheHomepage() {
+        commonPage.verifyAndClickOnTheLoginButtonOnTheHomepage();
+    }
+
+    @When("Verification of User Redirection to the User Login Page upon Clicking the Login Button")
+    public void verificationOfUserRedirectionToTheUserLoginPageUponClickingTheLoginButton() {
+        filikPage.verificationOfWindowAndInformationOnUserLoginPage();
+    }
+
+
+    @And("User Logs in with {string} and {string}")
+    public void userLogsInWithAnd(String username, String password) {
+        commonPage.loginUsername(username);
+        commonPage.loginPassword(password);
+        commonPage.clickSignInButton();
 
     }
-    @When("Verification of User Redirection to the {string} Page upon Clicking the Login Button")
-    public void verification_of_user_redirection_to_the_page_upon_clicking_the_login_button(String string) {
 
+    @And("Verify and Click on the Forgot Password Button on the User Login Page")
+    public void verifyAndClickOnTheForgotPasswordButtonOnTheUserLoginPage() {
+        filikPage.verifyAndClickOnTheForgotPasswordButtonOnTheUserLoginPage();
+    }
+
+    @And("Verify Password Reset Functionality on the Forgot Password Page")
+    public void verifyPasswordResetFunctionalityOnTheForgotPasswordPage() {
+        filikPage.verifyPasswordResetFunctionalityOnTheUserForgotPasswordPage();
+    }
+
+    @And("Verify and Click on the User Login Button on the Forgot Password Page")
+    public void verifyAndClickOnTheUserLoginButtonOnTheForgotPasswordPage() {
+        filikPage.verifyAndClickOnTheUserLoginButtonOnTheForgotPasswordPage();
+    }
+
+    @And("Verify and Click on the Front Site Button on the User Login Page")
+    public void verifyAndClickOnTheFrontSiteButtonOnTheUserLoginPage() {
+        filikPage.forgotPasswordMethod();
+    }
+
+    @Then("Close the browser")
+    public void closeTheBrowser() {
+        commonPage.closeTheBrowser();
+    }
+
+    @Then("Click on the Admin Login Button")
+    public void clickOnTheAdminLoginButton() {
+        commonPage.clickAdminLoginButton();
+    }
+
+    @When("Verification of User Redirection to the Admin Login Page upon Clicking the Login Button")
+    public void verificationOfUserRedirectionToTheAdminLoginPageUponClickingTheLoginButton() {
+        filikPage.verificationOfWindowAndInformationOnAdminLoginPage();
+    }
+
+    @And("Admin Logs in with {string} and {string}")
+    public void adminLogsInWithAnd(String username, String password) {
+        commonPage.adminLoginUsername(username);
+        commonPage.adminLoginPassword(password);
+        commonPage.clickSignInButton();
+    }
+
+    @And("Verify and Click on the Forgot Password Button on the Admin Login Page")
+    public void verifyAndClickOnTheForgotPasswordButtonOnTheAdminLoginPage() {
+        filikPage.verifyAndClickOnTheForgotPasswordButtonOnTheAdminLoginPage();
+    }
+
+    @Given("Navigate to adminLoginUrl page")
+    public void navigateToAdminLoginUrlPage() {
+        commonPage.navigateToAdminLoginUrl();
+    }
+
+    @And("Verify Password Reset Functionality on the Admin Forgot Password Page")
+    public void verifyPasswordResetFunctionalityOnTheAdminForgotPasswordPage() {
+        filikPage.verifyPasswordResetFunctionalityOnTheAdminForgotPasswordPage();
+    }
+
+    @And("verify StudentParent Dashboard Page")
+    public void verifyStudentParentDashboardPage() {
+        filikPage.verifyStudentParentDashboardPage();
+    }
+
+
+    @And("verify Admin Dashboard Page")
+    public void verifyAdminDashboardPage() {
+        filikPage.verifyAdminDashboardPage();
+    }
+
+    @Given("Teacher Logs in with {string} and {string}")
+    public void teacherLogsInWithAnd(String teacherEmail, String password) {
+        commonPage.teacherLoginMethod(ConfigReader.getProperty(teacherEmail), ConfigReader.getProperty(password));
+    }
+
+    @When("Go to Exam Result Page in the Teacher Panel")
+    public void goToExamResultPageInTheTeacherPanel() {
+        filikPage.goToExamResultPageInTheTeacherPanel();
+    }
+
+    @Given("Verification of Select Criteria")
+    public void verificationOfSelectCriteria() {
+        filikPage.verificationOfSelectCriteria();
+    }
+
+    @Given("Verification of the list of Exam Result")
+    public void verificationOfTheListOfExamResult() {
+        filikPage.verificationOfExamResultTableHeader();
+    }
+
+    @Given("Verification of User Redirection to Student's Profile Page")
+    public void verificationOfUserRedirectionToStudentSProfilePage() {
     }
 
 
