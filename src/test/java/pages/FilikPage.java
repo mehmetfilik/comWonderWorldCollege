@@ -1,12 +1,15 @@
 package pages;
 
 import io.cucumber.java.en.And;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.Assert.*;
@@ -83,6 +86,56 @@ public class FilikPage extends Base {
     // Admin and Teacher Login Page -> signInButton
     @FindBy(xpath = "//button[@class='btn']")
     private WebElement signInButton;
+
+    // Teacher panel -> Examinations Menu
+    @FindBy(xpath = "(//i[@class='fa fa-map-o ftlayer'])[2]")
+    private WebElement examinationsMenu;
+
+    // Teacher panel -> Examinations Menu > Exam Result Link
+    @FindBy(xpath = "(//i[@class='fa fa-angle-double-right'])[42]")
+    private WebElement examResultLink;
+
+    // Teacher panel -> Examinations Menu > Exam Result Page > Select Criteria Title
+    @FindBy(xpath = "//h3")
+    private WebElement selectCriteriaTitle;
+
+    // Teacher panel -> Exam Result Page > Select Criteria > Exam Group Dropdown Menu
+    @FindBy(id = "select2-exam_group_id-container")
+    private WebElement examGroupDropdownMenu;
+
+    // Teacher panel -> Exam Result Page > Select Criteria > Exam Group Search Box
+    @FindBy(xpath = "//*[@class='select2-search__field']")
+    private WebElement examGroupSearchBox;
+
+    // Teacher panel -> Exam Result Page > Select Criteria > Exam Dropdown Menu
+    @FindBy(id = "select2-exam_id-container")
+    private WebElement examDropdownMenu;
+
+    // Teacher panel -> Exam Result Page > Select Criteria > Exam Search Box
+    @FindBy(xpath = "//*[@class='select2-search__field']")
+    private WebElement examSearchBox;
+
+    // Teacher panel -> Exam Result Page > Select Criteria > Session Dropdown Menu
+    @FindBy(id = "session_id")
+    private WebElement sessionDropdownMenu;
+
+    // Teacher panel -> Exam Result Page > Select Criteria > Class Dropdown Menu
+    @FindBy(id = "class_id")
+    private WebElement classDropdownMenu;
+
+    // Teacher panel -> Exam Result Page > Select Criteria > Section Dropdown Menu
+    @FindBy(id = "section_id")
+    private WebElement sectionDropdownMenu;
+
+    // Teacher panel -> Exam Result Page > Select Criteria > Search Button
+    @FindBy(name = "search")
+    private WebElement searchButton;
+
+
+    // Teacher panel -> Exam Result Page > Exam Result Table Headers
+    @FindBy(xpath = "//table/thead")
+    private List<WebElement> examResultTableHeaders;
+
 
 
 
@@ -188,5 +241,94 @@ public class FilikPage extends Base {
         frontSiteButton.isDisplayed();
         userLoginButton.isDisplayed();
     }
+
+    public void goToExamResultPageInTheTeacherPanel() {
+        examinationsMenu.isDisplayed();
+        examinationsMenu.click();
+        examResultLink.isDisplayed();
+        examResultLink.click();
+    }
+
+    public void verificationOfSelectCriteria() {
+        selectCriteriaTitle.isDisplayed();
+        examGroupDropdownMenu.isDisplayed();
+        examGroupDropdownMenu.click();
+        examGroupSearchBox.sendKeys("Average Passing Exam");
+        examGroupSearchBox.sendKeys(Keys.ENTER);
+
+        ReusableMethods.bekle(1);
+        examDropdownMenu.isDisplayed();
+        examDropdownMenu.click();
+
+        examSearchBox.sendKeys("Average Passing");
+        examSearchBox.sendKeys(Keys.ENTER);
+
+        sessionDropdownMenu.isDisplayed();
+        Select select = new Select(sessionDropdownMenu);
+        select.selectByIndex(7);
+
+        classDropdownMenu.isDisplayed();
+        select = new Select(classDropdownMenu);
+        select.selectByIndex(2);
+
+        sectionDropdownMenu.isDisplayed();
+        select = new Select(sectionDropdownMenu);
+        select.selectByIndex(1);
+
+        searchButton.isDisplayed();
+        searchButton.click();
+    }
+
+    public String[] getExamResultTableHeaders(){
+        String[] headers = new String[examResultTableHeaders.size()];
+
+        for (int i = 0; i < examResultTableHeaders.size(); i++) {
+            headers[i] = examResultTableHeaders.get(i).getText();
+        }
+        return headers;
+    }
+
+    public void clickExamResultTableHeader(int index) {
+        examResultTableHeaders.get(index).click();
+    }
+
+    // A method that checks if the title is visible
+    public boolean isHeaderVisible(String headerName) {
+        for (WebElement header : examResultTableHeaders) {
+            if (header.getText().equalsIgnoreCase(headerName)) {
+                return header.isDisplayed();
+            }
+        }
+        return false;
+    }
+
+    // A method to check if the title is clickable
+    public boolean isHeaderClickable(String headerName) {
+        for (WebElement header : examResultTableHeaders) {
+            if (header.getText().equalsIgnoreCase(headerName)) {
+                return header.isEnabled();
+            }
+        }
+        return false;
+    }
+
+    public void verificationOfExamResultTableHeader(){
+        verificationOfSelectCriteria();
+
+        String[] headers = getExamResultTableHeaders();
+
+        // Check visibility and clickability for each title
+        for (String header : headers) {
+            boolean isHeaderVisible = isHeaderVisible(header);
+            boolean isHeaderClickable = isHeaderClickable(header);
+           }
+        ReusableMethods.bekle(3);
+
+
+    }
+
+
+
+
 
 }
