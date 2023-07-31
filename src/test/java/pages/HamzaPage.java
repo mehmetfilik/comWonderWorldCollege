@@ -69,6 +69,98 @@ public class HamzaPage extends Base {
     @FindBy (xpath ="(//*[@name='search'])[4]")
     public WebElement searchByKeywordSearchButton;
 
+    //Admin Student Search -> List Head1
+    @FindBy (xpath ="(//th[@rowspan='1'])[1]")
+    public WebElement searchListAdmissionNo;
+
+    //Admin Student Search -> List Head2
+    @FindBy (xpath ="(//th[@rowspan='1'])[2]")
+    public WebElement searchListStudenName;
+
+    //Admin Student Search -> List Head3
+    @FindBy (xpath ="(//th[@rowspan='1'])[3]")
+    public WebElement searchListClass;
+
+    //Admin Student Search -> List Head4
+    @FindBy (xpath ="(//th[@rowspan='1'])[4]")
+    public WebElement searchListFatherName;
+
+    //Admin Student Search -> List Head5
+    @FindBy (xpath ="(//th[@rowspan='1'])[5]")
+    public WebElement searchListDate;
+
+    //Admin Student Search -> List Head6
+    @FindBy (xpath ="(//th[@rowspan='1'])[6]")
+    public WebElement searchListGender;
+
+    //Admin Student Search -> List Head7
+    @FindBy (xpath ="(//th[@rowspan='1'])[7]")
+    public WebElement searchListCategory;
+
+    //Admin Student Search -> List Head8
+    @FindBy (xpath ="(//th[@rowspan='1'])[8]")
+    public WebElement searchListMobileNumber;
+
+    //Admin Student Search -> List Head9
+    @FindBy (xpath ="(//th[@rowspan='1'])[9]")
+    public WebElement searchListAction;
+
+    //Admin Student Search -> Student Name
+    @FindBy (partialLinkText = "eglence")
+    public WebElement searchStudentName;
+
+    //Admin Student Profile -> Student Name
+    @FindBy (xpath ="(//*[text()='hamza.eglence'])[3]")
+    public WebElement studentProfileName;
+
+    //Admin Student List -> View Icon
+    @FindBy (xpath ="(//*[@href='https://qa.wonderworldcollege.com/student/view/131'])[2]")
+    public WebElement studentListViewIcon;
+
+    //Admin Student List -> Edit Icon
+    @FindBy (xpath ="(//*[@href='https://qa.wonderworldcollege.com/student/edit/131'])[1]")
+    public WebElement studentListEditIcon;
+
+    //Admin Edit Student -> Edit Head
+    @FindBy (xpath ="//*[text()='Edit Student']")
+    public WebElement studentEditPageHead;
+
+    //Admin Edit Student -> Admission No
+    @FindBy (id = "admission_no")
+    public WebElement studentEditAdmissionNo;
+
+    //Admin Edit Student -> First Name
+    @FindBy (id = "firstname")
+    public WebElement studentEditFirstName;
+
+    //Admin Edit Student -> Date Of Birth
+    @FindBy (id = "dob")
+    public WebElement studentEditDateOfBirth;
+
+    //Admin Edit Student -> Sample Birth
+    @FindBy (xpath = "/html/body/div[5]/div[1]/table/tbody/tr[1]/td[4]")
+    public WebElement studentEditDatePicker;
+
+    //Admin Edit Student -> Fees Details
+    @FindBy (xpath = "(//input[@type='checkbox'])[14]")
+    public WebElement studentEditTestFees;
+
+    //Admin Edit Student -> Father Name
+    @FindBy (id = "father_name")
+    public WebElement studentEditFatherName;
+
+    //Admin Edit Student -> If Guardian Is
+    @FindBy (xpath = "(//input[@name='guardian_is'])[3]")
+    public WebElement studentEditGuardianIs;
+
+    //Admin Edit Student -> Guardian Name
+    @FindBy (id = "guardian_name")
+    public WebElement studentEditGuardianName;
+
+
+
+
+
 
 
 
