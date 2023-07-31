@@ -89,6 +89,7 @@ public class CommonPage extends Base {
         adminEmailBox.sendKeys(adminEmail);
         adminPasswordBox.sendKeys(password);
         signInButton.click();
+
     }
 
     public void teacherLoginMethod (String teacherEmail, String password){
@@ -98,6 +99,7 @@ public class CommonPage extends Base {
         teacherEmailBox.sendKeys(teacherEmail);
         teacherPasswordBox.sendKeys(password);
         signInButton.click();
+
     }
   
      public void navigateToHomepage(){
