@@ -14,15 +14,13 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources",
         glue = {"stepdefinitions"},
-
-
-        tags = "@test1",
-
+        tags = "@us045",
 
         dryRun = false
 )
 
 public class Runner {
+
 }
 
 
