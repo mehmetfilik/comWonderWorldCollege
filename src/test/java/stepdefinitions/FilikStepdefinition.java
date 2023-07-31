@@ -108,4 +108,30 @@ public class FilikStepdefinition {
     public void verifyAdminDashboardPage() {
         filikPage.verifyAdminDashboardPage();
     }
+
+    @Given("Teacher Logs in with {string} and {string}")
+    public void teacherLogsInWithAnd(String teacherEmail, String password) {
+        commonPage.teacherLoginMethod(ConfigReader.getProperty(teacherEmail), ConfigReader.getProperty(password));
+    }
+
+    @When("Go to Exam Result Page in the Teacher Panel")
+    public void goToExamResultPageInTheTeacherPanel() {
+        filikPage.goToExamResultPageInTheTeacherPanel();
+    }
+
+    @Given("Verification of Select Criteria")
+    public void verificationOfSelectCriteria() {
+        filikPage.verificationOfSelectCriteria();
+    }
+
+    @Given("Verification of the list of Exam Result")
+    public void verificationOfTheListOfExamResult() {
+        filikPage.verificationOfExamResultTableHeader();
+    }
+
+    @Given("Verification of User Redirection to Student's Profile Page")
+    public void verificationOfUserRedirectionToStudentSProfilePage() {
+    }
+
+
 }
