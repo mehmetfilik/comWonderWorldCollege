@@ -14,7 +14,7 @@ import java.util.Set;
 
 import static org.junit.Assert.*;
 
-public class FilikPage extends Base {
+public class                                                                                                                                                                                                                                                                                   FilikPage extends Base {
 
     CommonPage commonPage = new CommonPage();
 
@@ -135,6 +135,14 @@ public class FilikPage extends Base {
     // Teacher panel -> Exam Result Page > Exam Result Table Headers
     @FindBy(xpath = "//table/thead")
     private List<WebElement> examResultTableHeaders;
+
+    // Teacher panel -> Exam Result Page > first student name on the table
+    @FindBy(xpath = "//tbody/tr[1]/td[2]/a")
+    private WebElement firstStudentNameOnExamResultTable;
+
+    // Student panel -> student Profile
+    @FindBy(xpath = "(//*[@class='active'])[3]")
+    private WebElement studentProfile;
 
 
 
@@ -322,9 +330,14 @@ public class FilikPage extends Base {
             boolean isHeaderVisible = isHeaderVisible(header);
             boolean isHeaderClickable = isHeaderClickable(header);
            }
-        ReusableMethods.bekle(3);
+        ReusableMethods.bekle(1);
+    }
 
-
+    public void verificationOfUserRedirectionToStudentSProfilePage() {
+        ReusableMethods.waitForPageToLoad(3);
+        firstStudentNameOnExamResultTable.click();
+        ReusableMethods.waitForPageToLoad(3);
+        assertTrue(studentProfile.isDisplayed());
     }
 
 

@@ -1,5 +1,6 @@
 Feature: [US_23] Student Details and Student Search Test in the admin panel
 
+  @testHamza
 Scenario: [TC_001-->US_023] Verify Student Details and Search Page
 
   Then User goes to "adminLoginUrl"
@@ -10,10 +11,9 @@ Scenario: [TC_001-->US_023] Verify Student Details and Search Page
   Then User is redirected to the search page
   And Search page displays Class and Section dropdowns and two search buttons which are visible and active
 
-  Scenario: Verify Student Search Results
-    Given User performs a search in the Class and Section dropdowns based on pre-condition
+    Given User performs a search in the Class 2 and Section "A" dropdowns based on pre-condition
     Then A list with headers Admission No, Student Name, Class, Father Name, Date Of Birth, Gender, Category, Mobile Number, Action is displayed
-    And User verifies that the student name in the list is clickable and opens the student's profile page in a new window
+    And User verifies that the student name in the list is clickable and opens the student's profile page
     And User goes back to the previous Student Search page
     Then User verifies that the view icon under the Action column is visible and active
     And User clicks on the view icon

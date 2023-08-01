@@ -6,6 +6,7 @@ import org.junit.Assert;
 import pages.SametPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class SametStepdefinitons {
 
@@ -24,7 +25,7 @@ SametPage sametPage = new SametPage();
     @Then("The user closes the page")
     public void the_user_closes_the_page() {
 
-        Driver.closeDriver();
+       Driver.closeDriver();
     }
 
 }

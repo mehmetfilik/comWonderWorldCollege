@@ -12,8 +12,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import pages.CommonPage;
 import pages.MustafaPage;
+import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+import java.io.IOException;
+import java.io.ObjectInputFilter;
 
 public class MustafaStepdefinition {
 
@@ -21,9 +25,9 @@ public class MustafaStepdefinition {
     MustafaPage mustafa = new MustafaPage();
 
 
-
     Select select;
 
+    //***************************************US_029****************************************//
 
     @Given("User goes to {string} page")
     public void user_goes_to_page(String string) {
@@ -72,7 +76,7 @@ public class MustafaStepdefinition {
     @Then("user closes browser")
     public void userClosesBrowser() {
 
-        Driver.quitDriver();
+        Driver.closeDriver();
     }
 
     @Given("The user clicks on the Drag and drop link and uploads the file.")
@@ -93,36 +97,36 @@ public class MustafaStepdefinition {
     }
 
 
-
     @Given("On the User Complaint page, enters data in the boxes in the Add Complaint window")
     public void on_the_user_complaint_page_enters_data_in_the_boxes_in_the_add_complaint_window() {
-   mustafa.complainCreationMethod();
+        mustafa.complainCreationMethod();
     }
+
     @Then("Click on the {string} button.")
     public void click_on_the_button(String string) {
 
     }
+
     @Then("verifies that a grievance record has been created.")
     public void verifies_that_a_grievance_record_has_been_created() {
-    mustafa.grievanceRecordTestMethod();
+        mustafa.grievanceRecordTestMethod();
     }
 
     @And("The Copmlain List \\(with Complain, Complain Type, Name, Phone, Date, Action titles) should be displayed.")
     public void theCopmlainListWithComplainComplainTypeNamePhoneDateActionTitlesShouldBeDisplayed() {
-    mustafa.complainHeaderElementTestMethod();
+        mustafa.complainHeaderElementTestMethod();
     }
 
     @Given("User, click on the View  icon under the Action heading.")
     public void userClickOnTheViewIconUnderTheActionHeading() {
 
-       mustafa.viewButtonclick();
+        mustafa.viewButtonclick();
 
     }
 
     @Then("User Verifies that Complaint details are displayed.")
     public void userVerifiesThatComplaintDetailsAreDisplayed() {
         mustafa.detailsTextElementAssert();
-
 
 
     }
@@ -142,8 +146,6 @@ public class MustafaStepdefinition {
     @And("The user clicks the save button.")
     public void theUserClicksTheSaveButton() {
 
-     //   Actions actions=new Actions(Driver.getDriver());
-     //   actions.sendKeys(org.openqa.selenium.Keys.END).perform();
 
         JavascriptExecutor jsExecutor = (JavascriptExecutor) Driver.getDriver();
         jsExecutor.executeScript("window.scrollTo(0, 500);");
@@ -157,6 +159,107 @@ public class MustafaStepdefinition {
 
         mustafa.grievanceUpdateTestMethod();
     }
+
+    @Given("The user clicks on the delete icon under Action.")
+    public void theUserClicksOnTheDeleteIconUnderAction() {
+        mustafa.deleteButton.click();
+        mustafa.alertaccept();
+    }
+
+    @Then("user confirms that the complaint has been deleted.")
+    public void userConfirmsThatTheComplaintHasBeenDeleted() {
+
+        mustafa.grievanceDeleteTestMethod();
+    }
+
+
+
+
+
+    //********************************************US_043**********************************//
+
+    @Given("User goes to {string}.")
+    public void user_goes_to(String string) {
+    common.parentOrStudentLoginMethod("std142","deneme");
+    }
+    @Then("Click the login button.")
+    public void click_the_login_button() {
+
+    }
+    @Then("Enters valid username and invalid password in the username and password section on the left side.")
+    public void enters_valid_username_and_invalid_password_in_the_username_and_password_section_on_the_left_side() {
+
+    }
+    @Then("Click the Sign In button.")
+    public void click_the_sign_in_button() {
+
+    }
+
+    @Then("Verifies that the text {string} is visible.")
+    public void verifiesThatTheTextIsVisible(String arg0) {
+        mustafa.negativeStudentLoginAssert();
+
+    }
+
+
+
+    //********************************US_045*****************************************//
+
+    @Given("user goes to {string}")
+    public void userGoesTo(String arg0) {
+        common.parentOrStudentLoginMethod("std142","wonderworld123");
+    }
+
+    @And("The user enters the valid values in the username and password box on the left")
+    public void theUserEntersTheValidValuesInTheUsernameAndPasswordBoxOnTheLeft() {
+
+    }
+
+
+    @And("clicks the {string} button.")
+    public void clicksTheButton(String arg0) {
+
+
+    }
+    @And("User clicks on profile image")
+    public void userClicksOnProfileImage() {
+        mustafa.profileImgElement.click();
+    }
+
+    @Then("User clicks Change Password on Profile Image.")
+    public void userClicksChangePasswordOnProfileImage() {
+
+        mustafa.changePasswordButton.click();
+    }
+
+
+    @And("the user clicks the Change Username tab")
+    public void theUserClicksTheChangeUsernameTab() {
+        mustafa.changeUsername.click();
+    }
+
+    @And("User enters new username with less than {int} characters.")
+    public void userEntersNewUsernameWithLessThanCharacters(int arg0) {
+        mustafa.currentUsernameBox.sendKeys("std142");
+        mustafa.newUsernameBox.sendKeys("std");
+        mustafa.confirmUsernameBox.sendKeys("std");
+
+    }
+
+    @And("User clicks the save button")
+    public void userClicksTheSaveButton() {
+        mustafa.saveButton3.click();
+    }
+
+    @Then("{string} Verifies that the text appears.")
+    public void verifiesThatTheTextAppears(String arg0) throws IOException {
+
+        mustafa.usernameChangeTestMethod();
+
+    }
+
+
+
 }
 
 
