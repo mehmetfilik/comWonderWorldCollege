@@ -173,23 +173,23 @@ public class MustafaStepdefinition {
     }
 
 
-
-
-
     //********************************************US_043**********************************//
 
     @Given("User goes to {string}.")
     public void user_goes_to(String string) {
-    common.parentOrStudentLoginMethod("std142","deneme");
+        common.parentOrStudentLoginMethod("std142", "deneme");
     }
+
     @Then("Click the login button.")
     public void click_the_login_button() {
 
     }
+
     @Then("Enters valid username and invalid password in the username and password section on the left side.")
     public void enters_valid_username_and_invalid_password_in_the_username_and_password_section_on_the_left_side() {
 
     }
+
     @Then("Click the Sign In button.")
     public void click_the_sign_in_button() {
 
@@ -202,12 +202,11 @@ public class MustafaStepdefinition {
     }
 
 
-
     //********************************US_045*****************************************//
 
     @Given("user goes to {string}")
     public void userGoesTo(String arg0) {
-        common.parentOrStudentLoginMethod("std142","wonderworld123");
+        common.parentOrStudentLoginMethod("std142", "wonderworld123");
     }
 
     @And("The user enters the valid values in the username and password box on the left")
@@ -221,6 +220,7 @@ public class MustafaStepdefinition {
 
 
     }
+
     @And("User clicks on profile image")
     public void userClicksOnProfileImage() {
         mustafa.profileImgElement.click();
@@ -259,7 +259,48 @@ public class MustafaStepdefinition {
     }
 
 
+    @And("clicks on the forgot password button.")
+    public void clicksOnTheForgotPasswordButton() {
+        mustafa.loginButton.click();
+        mustafa.forgotPasswordButton.click();
 
+    }
+
+    @Then("The user enters student email in the Email box on the Forgot Password page and clicks Submit.")
+    public void theUserEntersStudentEmailInTheEmailBoxOnTheForgotPasswordPageAndClicksSubmit() {
+        mustafa.forgotEmailBox.sendKeys("mustafa.ozsamur@student.wonderworldcollege.com");
+        mustafa.studentRadioButton.click();
+        mustafa.forgotPasswordSubmitButton.click();
+    }
+
+    @Then("Verifies that you are directed to the relevant page.")
+    public void verifiesThatYouAreDirectedToTheRelevantPage() {
+        mustafa.passwordChangeAssertMethod();
+    }
+
+    @Given("User goes to wonderWorldUrl page")
+    public void userGoesToWonderWorldUrlPage() {
+        Driver.getDriver().get(ConfigReader.getProperty("wonderUrl"));
+    }
+
+    @Given("The user enters the new username with the correct combination.")
+    public void theUserEntersTheNewUsernameWithTheCorrectCombination() {
+
+        mustafa.currentUsernameBox.sendKeys("std142");
+        mustafa.newUsernameBox.sendKeys("std142");
+        mustafa.confirmUsernameBox.sendKeys("std142");
+        mustafa.saveButton3.click();
+
+
+    }
+
+    @Then("Username has been changed successfully. yazisinin görünür oldugu dogrular.")
+    public void usernameHasBeenChangedSuccessfullyYazisininGörünürOlduguDogrular() {
+        mustafa.usernameChangeTestMethod();
+    }
+
+
+    //**********************************************US_047******************************************//
 }
 
 

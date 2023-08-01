@@ -16,7 +16,6 @@ public class MustafaPage extends Base {
     //*****************************[US_029]***********************************//
 
 
-
     // Admin Panel-> Front Office tab
     @FindBy(xpath = "//span[text()='Front Office']")
     public WebElement frontOfficeTab;
@@ -173,19 +172,19 @@ public class MustafaPage extends Base {
         Assert.assertEquals(expectedText, actualText);
     }
 
-    public void grievanceUpdateTestMethod(){
+    public void grievanceUpdateTestMethod() {
         String expectedText = "Record Updated Successfully";
         String actualText = recordSavedSuccessfullyTextElemet.getText();
         Assert.assertEquals(expectedText, actualText);
     }
 
-    public void grievanceDeleteTestMethod(){
+    public void grievanceDeleteTestMethod() {
         String expectedText = "Record Delete Successfully";
         String actualText = recordSavedSuccessfullyTextElemet.getText();
         Assert.assertEquals(expectedText, actualText);
     }
 
-    public void alertaccept(){
+    public void alertaccept() {
         Driver.getDriver().switchTo().alert().accept();
     }
 
@@ -202,7 +201,6 @@ public class MustafaPage extends Base {
     }
 
 
-
     public void elementsDisplayedMethod() {
         Assert.assertTrue(complaintTypeElement.isDisplayed());
         Assert.assertTrue(complainByElement.isDisplayed());
@@ -215,7 +213,6 @@ public class MustafaPage extends Base {
         Assert.assertTrue(sourceElement.isDisplayed());
         Assert.assertTrue(saveButton.isDisplayed());
     }
-
 
 
     public void complainHeaderElementTestMethod() {
@@ -231,7 +228,7 @@ public class MustafaPage extends Base {
 
     // Homepage -> Login Button
     @FindBy(xpath = "//a[@class='complainbtn']")
-    private WebElement loginButton;
+    public WebElement loginButton;
 
     // Student-Parent LoginPage -> Email Box
     @FindBy(id = "email")
@@ -248,25 +245,54 @@ public class MustafaPage extends Base {
     @FindBy(xpath = "//div[@class='alert alert-danger']")
     private WebElement deleteSuccessfullyTextElemet;
 
+    // loginPage ForgotPasswordButton
+    @FindBy(xpath = "//a[@class='forgot']")
+    public WebElement forgotPasswordButton;
 
-    public void negativeStudentLoginAssert(){
+    //ForgotPasswordPage emailBox;
+    @FindBy(id = "form-username")
+    public WebElement forgotEmailBox;
 
-        String actualText=deleteSuccessfullyTextElemet.getText();
-        String expectedText="Invalid Username Or Password";
-        Assert.assertEquals(expectedText,actualText);
+    ////ForgotPasswordPage studentRadioButton
+    @FindBy(xpath = "//input[@value='student']")
+    public WebElement studentRadioButton;
+
+
+    //ForgotPasswordPage submitButton;
+    @FindBy(xpath = "//button[@class='btn']")
+    public WebElement forgotPasswordSubmitButton;
+
+    @FindBy(xpath = "//div[@class='alert alert-danger']")
+    private WebElement errorMesageTextElemet;
+
+    public void passwordChangeAssertMethod(){
+
+
+      if (errorMesageTextElemet.isDisplayed()){
+          Assert.assertTrue(false);
+      }else {
+          Assert.assertTrue(true);
+      }
+    }
+
+    public void negativeStudentLoginAssert() {
+
+        String actualText = deleteSuccessfullyTextElemet.getText();
+        String expectedText = "Invalid Username Or Password";
+        Assert.assertEquals(expectedText, actualText);
         System.out.println(deleteSuccessfullyTextElemet.getText());
     }
 
     //***********************************US_045*****************************************//
 
     @FindBy(xpath = "//i[@class='fa fa-key']")
-    public WebElement  changePasswordButton;
+    public WebElement changePasswordButton;
 
     @FindBy(xpath = "//img[@alt='User Image']")
     public WebElement profileImgElement;
 
     @FindBy(xpath = "//a[normalize-space()='Change Username']")
-    public  WebElement changeUsername;
+    public WebElement changeUsername;
 
     @FindBy(xpath = "//input[@name='current_username']")
     public WebElement currentUsernameBox;
@@ -280,15 +306,13 @@ public class MustafaPage extends Base {
     public WebElement saveButton3;
 
 
-    public void usernameChangeTestMethod(){
-        if (currentUsernameBox.isDisplayed()){
+    public void usernameChangeTestMethod() {
+        if (currentUsernameBox.isDisplayed()) {
             Assert.assertTrue(false);
-        }else {
+        } else {
             Assert.assertTrue(true);
         }
     }
-
-
 
 
 }
