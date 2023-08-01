@@ -1,6 +1,6 @@
 Feature: [US_37] As an administrator (teacher), I want a page where I can create online permission records and check all the permissions I have used.
 
-  @omer
+
   Scenario: [TC_001-->US_037] User Interface Enhancements for Leave Application in Teacher Panel
 
     * Sign in on the Theacher Admin
@@ -9,7 +9,7 @@ Feature: [US_37] As an administrator (teacher), I want a page where I can create
     * Apply Leave on the page is enable
 
 
-  @omer
+
   Scenario: [TC_002-->US_037] The "Apply Leave" button opens an "Add Details" window with active fields. Upon filling in the required information and clicking Save, a new leave request is generated.
 
     * Open to the applyLeavePage
@@ -26,7 +26,7 @@ Feature: [US_37] As an administrator (teacher), I want a page where I can create
     * Bug_Select the necessary information on the Apply Leave frame
 
 
-  @omer
+
   Scenario: [TC_003-->US_037] Leave Request Management in the "Leaves List"
 
     * Open to the applyLeavePage
