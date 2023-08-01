@@ -1,7 +1,7 @@
 Feature:[US_045] User information change test
 
   @us045
-  Scenario: When changing the username, the user should not be able to choose a username with less than 5 characters.
+  Scenario:[TC_001->US_045] When changing the username, the user should not be able to choose a username with less than 5 characters.
     Given user goes to "wonderUrl"
     Then Click the login button.
     And The user enters the valid values in the username and password box on the left
