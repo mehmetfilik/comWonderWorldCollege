@@ -157,11 +157,15 @@ public class HamzaPage extends Base {
     @FindBy (id = "guardian_name")
     public WebElement studentEditGuardianName;
 
+    //Admin Edit Student -> Bank Name
+    @FindBy (id = "bank_name")
+    public WebElement studentEditBankName;
 
+    //Admin Edit Student -> Edit Save Button
+    @FindBy (id = "submitbtn")
+    public WebElement studentEditSaveButton;
 
-
-
-
-
-
+    //Admin Edit Student -> Edit Save Alert
+    @FindBy (xpath = "//div[text()='Record Updated Successfully']")
+    public WebElement studentEditSaveAlert;
 }

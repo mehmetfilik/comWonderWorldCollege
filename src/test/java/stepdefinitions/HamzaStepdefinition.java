@@ -173,14 +173,14 @@ public class HamzaStepdefinition {
 
     @Then("User verifies that the edit icon under the Action column is visible and active")
     public void userVerifiesThatTheEditIconUnderTheActionColumnIsVisibleAndActive() {
-    hamzaPage.studentListEditIcon.isDisplayed();
-    hamzaPage.studentListEditIcon.isEnabled();
+        hamzaPage.studentListEditIcon.isDisplayed();
+        hamzaPage.studentListEditIcon.isEnabled();
     }
 
     @And("User clicks on the edit icon")
     public void userClicksOnTheEditIcon() {
         actions.keyDown(Keys.CONTROL).click(hamzaPage.studentListEditIcon)
-            .keyUp(Keys.CONTROL).perform();
+                .keyUp(Keys.CONTROL).perform();
         hamzaWhSet = Driver.getDriver().getWindowHandles();
         String studentProfileEditButtonWH = "";
         for (String eachWhd : hamzaWhSet
@@ -195,9 +195,9 @@ public class HamzaStepdefinition {
 
     @Then("User verifies that the student's edit page is opened")
     public void userVerifiesThatTheStudentSEditPageIsOpened() {
-    String actualEditPage= hamzaPage.studentEditPageHead.getText();
-    String expectedEditPage="Edit Student";
-    Assert.assertTrue(actualEditPage.contains(expectedEditPage));
+        String actualEditPage= hamzaPage.studentEditPageHead.getText();
+        String expectedEditPage="Edit Student";
+        Assert.assertTrue(actualEditPage.contains(expectedEditPage));
     }
 
     @And("User can edit the information in the Edit Student, Transport Details, Fees Details, Parent Guardian Detail, Address-Details, and Miscellaneous Details sections")
@@ -233,16 +233,25 @@ public class HamzaStepdefinition {
 
         hamzaPage.studentEditFatherName.click();
         hamzaPage.studentEditFatherName.clear();
-         actions.click(hamzaPage.studentEditFatherName).sendKeys("Ramiz").perform();
+        actions.click(hamzaPage.studentEditFatherName).sendKeys("Ramiz").perform();
 
         hamzaPage.studentEditGuardianIs.click();
 
         hamzaPage.studentEditGuardianName.click();
         hamzaPage.studentEditGuardianName.clear();
+        actions.click(hamzaPage.studentEditGuardianName).sendKeys("BabaName").perform();
+        actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).perform();
+        actions.sendKeys("+905555555555");
+        actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).perform();
+        actions.sendKeys("Asagi Ayranci Mah. Ortadaki Park Sk.").perform();
 
+        hamzaPage.studentEditBankName.click();
+        hamzaPage.studentEditBankName.clear();
+        actions.click(hamzaPage.studentEditBankName).sendKeys("Central Bank");
+        actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).perform();
+        actions.sendKeys("Basarili Ogrenci");
 
-
-
+        hamzaPage.studentEditSaveButton.click();
 
 
 
