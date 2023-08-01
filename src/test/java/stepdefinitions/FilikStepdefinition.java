@@ -131,6 +131,7 @@ public class FilikStepdefinition {
 
     @Given("Verification of User Redirection to Student's Profile Page")
     public void verificationOfUserRedirectionToStudentSProfilePage() {
+        filikPage.verificationOfUserRedirectionToStudentSProfilePage();
     }
 
 
