@@ -302,7 +302,7 @@ public class OmerPage extends Base{
 
 
     // Class Menu
-    @FindBy(xpath = "/html/body/div[2]/div[1]/section[2]/div/div/div/ul/li[2]")
+    @FindBy(xpath = "//a[@href='#tab_class']")
     private WebElement classButtonOnComposePage;
 
     @FindBy(id = "class_id")
