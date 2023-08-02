@@ -135,7 +135,6 @@ public class RamazanStepdefinitons extends Base {
     public void verifyThatTheHomeworkEvaluationCompletedSuccessfullyAlertMessageIsVisible() {
     }
 
-
     @And("Click on the Edit icon under the Action heading.")
     public void clickOnTheEditIconUnderTheActionHeading() {
         ramazanPage.editIcon.click();
@@ -166,8 +165,9 @@ public class RamazanStepdefinitons extends Base {
 
     @And("Click on the OK button in the opened alert.")
     public void clickOnTheOKButtonInTheOpenedAlert() throws InterruptedException {
+        ReusableMethods.bekle(3);
         Driver.getDriver().switchTo().alert().accept();
-        Thread.sleep(1000);
+        ReusableMethods.bekle(3);
         Driver.getDriver().switchTo().defaultContent();
     }
 
@@ -294,14 +294,7 @@ public class RamazanStepdefinitons extends Base {
 
     @Then("Verify that the Class, Section, Apply Date, From Date, To Date, Reason, Status, and Action columns are visible on the opened page.")
     public void verifyThatTheClassSectionApplyDateFromDateToDateReasonStatusAndActionColumnsAreVisibleOnTheOpenedPage() {
-        ramazanPage.classColumn.isDisplayed();
-        ramazanPage.sectionColumn.isDisplayed();
-        ramazanPage.applyDateColumn.isDisplayed();
-        ramazanPage.fromDateColumn.isDisplayed();
-        ramazanPage.toDateColumn.isDisplayed();
-        ramazanPage.reasonColumn.isDisplayed();
-        ramazanPage.statusColumn.isDisplayed();
-        ramazanPage.actionColumn.isDisplayed();
+        ramazanPage.verifyThatTheClassSectionApplyDateFromDateToDateReasonStatusAndActionColumnsAreVisibleOnTheOpenedPage();
     }
 
     @And("Click on the Edit button under the Action section on the opened page.")
@@ -311,7 +304,6 @@ public class RamazanStepdefinitons extends Base {
 
     @And("Make updates in the textbox below the Reason in the opened window, then click on the Save button.")
     public void makeUpdatesInTheTextboxBelowTheReasonInTheOpenedWindowThenClickOnTheSaveButton() {
-        ramazanPage.textAreaEditLeavePage.click();
         ramazanPage.textAreaEditLeavePage.clear();
         ramazanPage.textAreaEditLeavePage.sendKeys("Sick");
         ramazanPage.saveButtonEditLeavePage.click();
@@ -456,5 +448,11 @@ public class RamazanStepdefinitons extends Base {
     @Then("Verify that the user encounters the message Password has been changed successfully.")
     public void verifyThatTheUserEncountersTheMessagePasswordHasBeenChangedSuccessfully() {
 
+    }
+
+    //=======================US_055========================
+
+    @Then("Verify that the Change Username button is visible in the menu.")
+    public void verifyThatTheChangeUsernameButtonIsVisibleInTheMenu() {
     }
 }
