@@ -1,8 +1,12 @@
 package pages;
 
 import org.checkerframework.checker.signature.qual.FieldDescriptor;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import utilities.Driver;
 
 public class RamazanPage extends Base {
 
@@ -51,8 +55,11 @@ public class RamazanPage extends Base {
     @FindBy(xpath = "(//*[@id='submit'])[1]")
     public WebElement saveButton;
 
-    @FindBy(xpath = "//div[@class='toast-message']")
+    @FindBy(xpath = "//*[text()='Record Saved Successfully']")
     public WebElement successMessageElement;
+
+    // @FindBy(xpath = "//*[text()='Record Saved Successfully']")
+    // public WebElement toastMessageScheduleSuccessfully;
 
     @FindBy(xpath = "//i[@class='fa fa-remove']")
     public WebElement deleteIcon;
@@ -90,7 +97,7 @@ public class RamazanPage extends Base {
     @FindBy(xpath = "//button[@id='delete_btn_id']")
     public WebElement deleteButton;
 
-    @FindBy(xpath = "//div[@class='toast-message']")
+    @FindBy(xpath = "//*[text()='Record Deleted Successfully']")
     public WebElement deleteMessageElement;
 
     // --------------------------- US_049 ----------------------------- //
@@ -219,7 +226,21 @@ public class RamazanPage extends Base {
     @FindBy(xpath = "//button[@class='btn btn-info']")
     public WebElement saveButtonPasswordPage;
 
-    // @FindBy(xpath = "//*[text()='Schedule message successfully']")
+    // @FindBy(xpath = "//*[text()='Record Saved Successfully']")
     // public WebElement toastMessageScheduleSuccessfully;
+
+
+    public void verifyThatTheClassSectionApplyDateFromDateToDateReasonStatusAndActionColumnsAreVisibleOnTheOpenedPage() {
+        classColumn.isDisplayed();
+        sectionColumn.isDisplayed();
+        applyDateColumn.isDisplayed();
+        fromDateColumn.isDisplayed();
+        toDateColumn.isDisplayed();
+        reasonColumn.isDisplayed();
+        statusColumn.isDisplayed();
+        actionColumn.isDisplayed();
+    }
+
+
 
 }
