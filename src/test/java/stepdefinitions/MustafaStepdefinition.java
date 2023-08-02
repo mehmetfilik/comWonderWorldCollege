@@ -387,8 +387,43 @@ public class MustafaStepdefinition {
     public void verifies_that_the_assignment_was_deleted() {
         mustafa.updateNewdailyAssignment();
     }
+//********************************US_056***********************************//
 
+    @Given("User goes to wonderWorld website")
+    public void userGoesToWonderWorldWebsite() {
+        common.parentOrStudentLoginMethod("parent76","wonderworld123");
+    }
 
+    @And("The user enters the valid values in the username and password box on the left and clicks the {string} button.")
+    public void theUserEntersTheValidValuesInTheUsernameAndPasswordBoxOnTheLeftAndClicksTheButton(String arg0) {
+
+    }
+
+    @And("User clicks {string} button")
+    public void userClicksButton(String arg0) {
+        mustafa.myProfileTab.click();
+    }
+
+    @And("Student's name, Admission No, Class, Section, and Gender. Verifies that elements are visible")
+    public void studentSNameAdmissionNoClassSectionAndGenderVerifiesThatElementsAreVisible() {
+        mustafa.parentMyProfileElementsVisiable();
+    }
+
+    @Given("Verifies that the Profile, Fees, Exam, and Documents tabs are visible.")
+    public void verifiesThatTheProfileFeesExamAndDocumentsTabsAreVisible() {
+    mustafa.parentMyProfileElementsVisiable2();
+    }
+
+    @And("User clicks profile tab")
+    public void userClicksProfileTab() {
+
+        mustafa.profileElement.click();
+    }
+
+    @And("Verifies that the headers appear under the profile tab")
+    public void verifiesThatTheHeadersAppearUnderTheProfileTab() {
+mustafa.profileElementsAssertMethod();
+    }
 }
 
 

@@ -13,7 +13,7 @@ Feature: [US_047]  As a user, I should be able to access the "Homework" page and
     And Click on the menu under the Action section and after typing a message in the message box, click the save button.
     Then The Action section should be accessible and a message can be sent.
     And The user closes the page
-  @us047
+
   Scenario: [TC_003->US_047] User should be able to add new assignment.
     And User clicks Daily Assignment button
     And Click on the +Daily Assignment button
@@ -31,5 +31,6 @@ Feature: [US_047]  As a user, I should be able to access the "Homework" page and
     And Verifies that assignment information has been updated.
     And Click the Delete icon under the Action section
     Then verifies that the assignment was deleted.
+    And The user closes the page
 
 
