@@ -17,9 +17,10 @@ Feature: [US_033] As an administrator (teacher), I want to access students' exam
     Given Verification of the list of Exam Result
     When Close the browser
 
-  @test
+  @test2
   Scenario: [TC_003-->US_033] Redirection to Respective Student's Profile Page from the 'Exam Result' Section
 
+    Given Verification of the list of Exam Result
     Given Verification of User Redirection to Student's Profile Page
     When Close the browser
 

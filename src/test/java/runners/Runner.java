@@ -15,12 +15,16 @@ import org.junit.runner.RunWith;
         features = "src/test/resources",
         glue = {"stepdefinitions"},
 
-        tags = "@[US_054_TC_003]",
+
+        tags = "@omer",
+
+
 
         dryRun = false
 )
 
 public class Runner {
+
 }
 
 
