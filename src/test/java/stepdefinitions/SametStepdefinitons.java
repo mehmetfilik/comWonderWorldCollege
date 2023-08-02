@@ -7,6 +7,7 @@ import org.junit.Assert;
 import pages.SametPage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 public class SametStepdefinitons {
 
@@ -33,7 +34,7 @@ public class SametStepdefinitons {
     @Then("The user closes the page")
     public void the_user_closes_the_page() {
 
-        Driver.closeDriver();
+       Driver.closeDriver();
     }
 
     @Then("Testing the first latest news information\"")
