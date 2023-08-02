@@ -4,12 +4,15 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.sl.In;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.CommonPage;
 import pages.FilikPage;
 import pages.HamzaPage;
@@ -17,6 +20,8 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.net.Socket;
+import java.time.Duration;
 import java.util.Set;
 
 public class HamzaStepdefinition {
@@ -26,7 +31,8 @@ public class HamzaStepdefinition {
 
     Actions actions = new Actions(Driver.getDriver());
     private String studentListWH;
-    Set<String> hamzaWhSet ;
+    Set<String> hamzaWhSet;
+
 
     @Given("User goes to {string}")
     public void goesToAdminPage(String requestedUrl) {
@@ -41,13 +47,17 @@ public class HamzaStepdefinition {
 
     }
 
-    @Then("The user enters the email and password and clicks the sign in button.")
-    public void theUserEntersTheEmailAndPasswordAndClicksTheSignInButton() {
+    @Then("The user enters the email and password")
+    public void theUserEntersTheEmailAndPassword() {
         hamzaPage.adminEmailBox.sendKeys(ConfigReader.getProperty("validHamzaAdminEmail"));
         hamzaPage.adminPasswordBox.sendKeys(ConfigReader.getProperty("validHamzaAdminPassword"));
-        hamzaPage.signInButton.click();
+
     }
 
+    @And("User clicks on the Admin Sign In button")
+    public void userClicksOnTheAdminSignInButton() {
+        hamzaPage.signInButton.click();
+    }
 
     @When("User verifies that the Student Details link is visible under the Student Information section in the admin page")
     public void userVerifiesThatTheStudentDetailsLinkIsVisibleUnderTheStudentInformationSectionInTheAdminPage() {
@@ -124,8 +134,8 @@ public class HamzaStepdefinition {
         }
         Driver.getDriver().switchTo().window(studentProfileWH);
 
-        String actualStudentName= hamzaPage.studentProfileName.getText();
-        String expectedStudentName="eglence";
+        String actualStudentName = hamzaPage.studentProfileName.getText();
+        String expectedStudentName = "eglence";
         Assert.assertTrue(actualStudentName.contains(expectedStudentName));
         Driver.getDriver().close();
 
@@ -162,11 +172,10 @@ public class HamzaStepdefinition {
     }
 
 
-
     @Then("User verifies that the student's profile page opens in a new window")
     public void userVerifiesThatTheStudentSProfilePageOpensInANewWindow() {
-        String actualStudentName= hamzaPage.studentProfileName.getText();
-        String expectedStudentName="eglence";
+        String actualStudentName = hamzaPage.studentProfileName.getText();
+        String expectedStudentName = "eglence";
         Assert.assertTrue(actualStudentName.contains(expectedStudentName));
         Driver.getDriver().close();
     }
@@ -195,8 +204,8 @@ public class HamzaStepdefinition {
 
     @Then("User verifies that the student's edit page is opened")
     public void userVerifiesThatTheStudentSEditPageIsOpened() {
-        String actualEditPage= hamzaPage.studentEditPageHead.getText();
-        String expectedEditPage="Edit Student";
+        String actualEditPage = hamzaPage.studentEditPageHead.getText();
+        String expectedEditPage = "Edit Student";
         Assert.assertTrue(actualEditPage.contains(expectedEditPage));
     }
 
@@ -206,7 +215,7 @@ public class HamzaStepdefinition {
 
         WebElement dropdownEditClass = Driver.getDriver().findElement(By.id("class_id"));
         Select selectEditClass = new Select(dropdownEditClass);
-        selectEditClass.selectByVisibleText("Class 3");
+        selectEditClass.selectByVisibleText("Class 2");
 
         WebElement dropdownEditSection = Driver.getDriver().findElement(By.id("section_id"));
         Select selectEditSection = new Select(dropdownEditSection);
@@ -219,7 +228,10 @@ public class HamzaStepdefinition {
         selectEditGender.selectByVisibleText("Female");
 
         hamzaPage.studentEditDateOfBirth.click();
-        actions.moveToElement(hamzaPage.studentEditDatePicker).click().build().perform();
+        hamzaPage.studentEditDateOfBirth.clear();
+        actions.sendKeys(hamzaPage.studentEditDateOfBirth).sendKeys("04/02/2009").perform();
+
+        //actions.moveToElement(hamzaPage.studentEditDatePicker).click().build().perform();
 
         WebElement dropdownEditRouteList = Driver.getDriver().findElement(By.id("vehroute_id"));
         Select selectEditRouteList = new Select(dropdownEditRouteList);
@@ -250,26 +262,199 @@ public class HamzaStepdefinition {
         actions.click(hamzaPage.studentEditBankName).sendKeys("Central Bank");
         actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).perform();
         actions.sendKeys("Basarili Ogrenci");
-
         hamzaPage.studentEditSaveButton.click();
+    }
+
+    @And("User verifies that the edited information is saved by clicking the save button on the Edit page")
+    public void userVerifiesThatTheEditedInformationIsSavedByClickingTheSaveButtonOnTheEditPage() {
+        //ReusableMethods.wait(2);
+
+        String actualEditAlert = hamzaPage.studentEditSaveAlert.getText();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+
+        wait.until(ExpectedConditions.visibilityOf(hamzaPage.studentEditSaveAlert));
+        String expectedEditAlert = "Record Updated Successfully";
+        Assert.assertTrue(actualEditAlert.contains(expectedEditAlert));
+        Driver.getDriver().close();
+    }
+
+    @Given("User verifies that the add fees icon under the Action column is visible and active")
+    public void userVerifiesThatTheAddFeesIconUnderTheActionColumnIsVisibleAndActive() {
+        hamzaPage.studentListAddFeesIcon.isDisplayed();
+        hamzaPage.studentListAddFeesIcon.isEnabled();
+    }
+
+    @And("User clicks on the add fees icon")
+    public void userClicksOnTheAddFeesIcon() {
+        actions.keyDown(Keys.CONTROL).click(hamzaPage.studentListAddFeesIcon)
+                .keyUp(Keys.CONTROL).perform();
+        hamzaWhSet = Driver.getDriver().getWindowHandles();
+        String studentProfileAddFeesButtonWH = "";
+        for (String eachWhd : hamzaWhSet
+        ) {
+            if (!eachWhd.equals(studentListWH)) {
+                studentProfileAddFeesButtonWH = eachWhd;
+            }
+        }
+        Driver.getDriver().switchTo().window(studentProfileAddFeesButtonWH);
+    }
+
+
+    @Then("User is redirected to the relevant student's add fee page")
+    public void userIsRedirectedToTheRelevantStudentSAddFeePage() {
+        String actualAddFeeUrl = Driver.getDriver().getCurrentUrl();
+        String expectedAddFeeUrl = "addfee";
+
+        Assert.assertTrue(actualAddFeeUrl.contains(expectedAddFeeUrl));
+
+    }
+
+    //=================================================================================================
+    //=================================================================================================
+    //US_024
+    @And("User clicks on the Fees Collection link")
+    public void userClicksOnTheFeesCollectionLink() {
+        hamzaPage.adminFeesCollectionIcon.click();
+    }
+
+    @Then("User verifies that the Collect Fees page link is visible under the Fees Collection menu heading")
+    public void userVerifiesThatTheCollectFeesPageLinkIsVisibleUnderTheFeesCollectionMenuHeading() {
+        hamzaPage.adminFeesMasterIcon.isDisplayed();
+
+    }
+
+
+    @When("User clicks on the Collect Fees link")
+    public void userClicksOnTheCollectFeesLink() {
+        hamzaPage.adminFeesMasterIcon.click();
+
+    }
+
+    @Then("User verifies that the addfee page is opened is opened")
+    public void userVerifiesThatTheAddfeePageIsOpenedisOpened() {
+        String actualFeesUrl = Driver.getDriver().getCurrentUrl();
+        String expectedFeesUrl = "adfee";
+        Assert.assertTrue(actualFeesUrl.contains(expectedFeesUrl));
+
+    }
+
+
+    @And("User goes to the URL {string} list")
+    public void userGoesToTheURLList(String requestedUrl) {
+        Driver.getDriver().get(ConfigReader.getProperty(requestedUrl));
+    }
+
+
+    @Then("Student Fees list should be displayed with columns Fees Group, Fees Code, Due Date, Status, Amount, Payment ID, Mode, Date, Discount, Fine, Paid, Balance, Action")
+    public void studentFeesListShouldBeDisplayedWithColumnsFeesGroupFeesCodeDueDateStatusAmountPaymentIDModeDateDiscountFinePaidBalanceAction() {
+        {
+            hamzaPage.adminFeesFeesGroupIcon.isDisplayed();
+            hamzaPage.adminFeesFeesCodeIcon.isDisplayed();
+            hamzaPage.adminFeesDueDateIcon.isDisplayed();
+            hamzaPage.adminFeesStatusIcon.isDisplayed();
+            hamzaPage.adminFeesAmountIcon.isDisplayed();
+            hamzaPage.adminFeesPaymentIDIcon.isDisplayed();
+            hamzaPage.adminFeesModeIcon.isDisplayed();
+            hamzaPage.adminFeesDateIcon.isDisplayed();
+            hamzaPage.adminFeesDiscountIcon.isDisplayed();
+            hamzaPage.adminFeesFineIcon.isDisplayed();
+            hamzaPage.adminFeesPaidIcon.isDisplayed();
+            hamzaPage.adminFeesBalanceIcon.isDisplayed();
+            hamzaPage.adminFeesActionIcon.isDisplayed();
+        }
+    }
+
+    @When("Admin selects the Euro symbol from the top bar in the admin panel")
+    public void adminSelectsTheEuroSymbolFromTheTopBarInTheAdminPanel() {
+        hamzaPage.adminFeesBarMoneyIcon.click();
+        hamzaPage.adminFeesBarEuroIcon.click();
+    }
+
+    @Then("Euro symbol should be visible in the Amount column of the Student Fees list")
+    public void euroSymbolShouldBeVisibleInTheAmountColumnOfTheStudentFeesList() {
+        hamzaPage.adminFeesListEuroIcon.isDisplayed();
+    }
+
+    @When("Admin clicks on the + icon under the Action column for an unpaid payment")
+    public void adminClicksOnTheIconUnderTheActionColumnForAnUnpaidPayment() {
+    hamzaPage.adminFeesActionPlusIcon.click();
+
+    }
+
+    @And("Admin enters the amount in the popup and clicks on the Collect Fees button")
+    public void adminEntersTheAmountInThePopupAndClicksOnTheCollectFeesButton() {
+        hamzaPage.adminFeesAmountPopup.click();
+        //WebDriverWait waitAmountPopup = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(2));
+        //waitAmountPopup.until(ExpectedConditions.visibilityOf(hamzaPage.adminFeesAmountPopup));
+        actions.sendKeys(Keys.DELETE).sendKeys(Keys.DELETE)
+               .sendKeys(Keys.DELETE).sendKeys(Keys.DELETE).sendKeys(Keys.DELETE).sendKeys(Keys.DELETE)
+                .sendKeys(Keys.DELETE).sendKeys(Keys.DELETE).perform();
+        //hamzaPage.adminFeesAmountPopup.clear();
+        actions.sendKeys("1000.00").perform();
+        hamzaPage.adminFeesAmountPopupCollectFees.click();
+    }
+
+    @Then("The entered amount should be seen in the addfee page")
+    public void theEnteredAmountShouldBeSeenInTheAddfeePage() throws InterruptedException {
+        //WebDriverWait waitAmountSaved = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(6));
+        Thread.sleep(4000);
+        String actualAmount= hamzaPage.adminFeesEnteredAmountText.getText();
+        System.out.println("actual Amount = "+actualAmount);
+        String expectedAmount = "1,000.00";
+        Assert.assertEquals(expectedAmount,actualAmount);
+    }
+
+    @When("Admin clicks on the revert icon for the payment")
+    public void adminClicksOnTheRevertIconForThePayment() {
+        hamzaPage.adminFeesRevertIcon.click();
+    }
+
+    @Then("Confirmation is given by clicking the revert icon in the window that opens.")
+    public void confirmationIsGivenByClickingTheRevertIconInTheWindowThatOpens() {
+    hamzaPage.adminFeesRevertAssentIcon.click();
+
+    }
+    @Then("{string} status should be displayed under the Status column")
+    public void statusShouldBeDisplayedUnderTheStatusColumn(String arg0) throws InterruptedException {
+        Thread.sleep(4000);
+        String actualBalanceAmount= hamzaPage.adminFeesBalanceText.getText();
+        String expectedBalanceAmount = "€0.00"  ;
+        Assert.assertEquals(actualBalanceAmount, expectedBalanceAmount);
+    }
 
 
 
+    @Then("Paid amount should be displayed in the Paid column")
+    public void paidAmountShouldBeDisplayedInThePaidColumn() throws InterruptedException {
+        Thread.sleep(4000);
+        String actualPaidline= hamzaPage.adminFeesPaidLine.getText();
+        actualPaidline="€"+actualPaidline;
+        System.out.println("actualPaidLine="+actualPaidline);
+        String actualTotalPaidLine =hamzaPage.adminFeesTotalPaid.getText();
+        System.out.println("actualTotalPaidLine0"+actualTotalPaidLine);
+        Assert.assertEquals(actualPaidline, actualTotalPaidLine);
+    }
 
+    @And("Remaining balance amount should be displayed in the Balance column")
+    public void remainingBalanceAmountShouldBeDisplayedInTheBalanceColumn() {
+        String totalBalanceOne=hamzaPage.adminFeesBalanceOne.getText();
+        System.out.println("total balance one ="+totalBalanceOne);
+        double total1=Double.parseDouble(totalBalanceOne);
 
+        String totalBalanceTwo=hamzaPage.adminFeesBalanceTwo.getText();
+        System.out.println("total balance two ="+totalBalanceTwo);
+        double total2=Double.parseDouble(totalBalanceTwo);
 
+        double grandTotalBalance= total1+total2;
+        System.out.println(grandTotalBalance);
 
+        String expectedFinallyTotalBalance="€"+grandTotalBalance;
+        System.out.println("expected Finally Total Balance="+expectedFinallyTotalBalance);
 
+        String totalBalance=hamzaPage.adminFeesTotalBalance.getText();
+        System.out.println("Grandtotalbalance="+totalBalance);
 
-
-
-
-
-
-
-
-
-
+      Assert.assertEquals(totalBalance,expectedFinallyTotalBalance);
 
     }
 }
