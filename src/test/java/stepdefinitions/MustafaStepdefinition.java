@@ -235,6 +235,7 @@ public class MustafaStepdefinition {
 
     @And("the user clicks the Change Username tab")
     public void theUserClicksTheChangeUsernameTab() {
+
         mustafa.changeUsername.click();
     }
 
@@ -248,6 +249,7 @@ public class MustafaStepdefinition {
 
     @And("User clicks the save button")
     public void userClicksTheSaveButton() {
+
         mustafa.saveButton3.click();
     }
 
@@ -294,8 +296,9 @@ public class MustafaStepdefinition {
 
     }
 
-    @Then("Username has been changed successfully. yazisinin görünür oldugu dogrular.")
-    public void usernameHasBeenChangedSuccessfullyYazisininGörünürOlduguDogrular() {
+    @Then("Username has been changed successfully. Verifies that the text is visible.")
+    public void usernameHasBeenChangedSuccessfullyVerifiesThatTheTextIsVisible() {
+
         mustafa.usernameChangeTestMethod();
     }
 
@@ -303,30 +306,36 @@ public class MustafaStepdefinition {
     //**********************************************US_047******************************************//
     @Given("The user goes to the {string} website.")
     public void the_user_goes_to_the_website(String string) {
-       common.parentOrStudentLoginMethod("std142","wonderworld123");
+        common.parentOrStudentLoginMethod("std119", "wonderworld123");
     }
+
     @Given("Clicks the Login button.")
     public void clicks_the_login_button() {
 
     }
+
     @Given("The user enters the valid values in the username and password box on the left and clicks the Sign In button.")
     public void the_user_enters_the_valid_values_in_the_username_and_password_box_on_the_left_and_clicks_the_button() {
 
     }
+
     @Given("The user clicks on the Homework page on the left.")
     public void the_user_clicks_on_the_page_on_the_left() {
-    mustafa.homeworkTab.click();
+        mustafa.homeworkTab.click();
     }
+
     @Given("Column fields in the Upcoming Homework segment must be visible.")
     public void column_fields_in_the_segment_must_be_visible() {
-    mustafa.fieldAssertMethod();
+        mustafa.fieldAssertMethod();
     }
+
     @Given("Click on the menu under the Action section and after typing a message in the message box, click the save button.")
     public void click_on_the_menu_under_the_section_and_after_typing_a_message_in_the_message_box_click_the_button() {
-    mustafa.homeworkDetailsPage();
+        mustafa.homeworkDetailsPage();
 
 
     }
+
     @Then("The Action section should be accessible and a message can be sent.")
     public void the_action_section_should_be_accessible_and_a_message_can_be_sent() {
 
@@ -337,45 +346,84 @@ public class MustafaStepdefinition {
     public void user_clicks_daily_assignment_button() {
 
     }
+
     @Given("Click on the +Daily Assignment button")
     public void click_on_the_daily_assignment_button() {
 
     }
+
     @Given("Creates a new daily assignment by entering the necessary information in the Subject , Title , Description, Attach Document fields and clicks the Save button.")
     public void creates_a_new_daily_assignment_by_entering_the_necessary_information_in_the_subject_title_description_attach_document_fields_and_clicks_the_save_button() {
-    mustafa.newdailyAssignment();
+        mustafa.newdailyAssignment();
     }
+
     @Then("Verifies that a new assignment has been added.")
     public void verifies_that_a_new_assignment_has_been_added() {
 
     }
 
 
-
     @Given("The user clicks the Edit icon under the Action section")
     public void the_user_clicks_the_edit_icon_under_the_action_section() {
 
     }
+
     @Given("Changes the information on the Edit Daily Assignment page and clicks the {string} button.")
     public void changes_the_information_on_the_edit_daily_assignment_page_and_clicks_the_button(String string) {
 
     }
+
     @Given("Verifies that assignment information has been updated.")
     public void verifies_that_assignment_information_has_been_updated() {
 
     }
+
     @Given("Click the Delete icon under the Action section")
     public void click_the_delete_icon_under_the_action_section() {
 
     }
+
     @Then("verifies that the assignment was deleted.")
     public void verifies_that_the_assignment_was_deleted() {
-mustafa.updateNewdailyAssignment();
+        mustafa.updateNewdailyAssignment();
+    }
+//********************************US_056***********************************//
+
+    @Given("User goes to wonderWorld website")
+    public void userGoesToWonderWorldWebsite() {
+        common.parentOrStudentLoginMethod("parent76","wonderworld123");
     }
 
+    @And("The user enters the valid values in the username and password box on the left and clicks the {string} button.")
+    public void theUserEntersTheValidValuesInTheUsernameAndPasswordBoxOnTheLeftAndClicksTheButton(String arg0) {
 
+    }
 
+    @And("User clicks {string} button")
+    public void userClicksButton(String arg0) {
+        mustafa.myProfileTab.click();
+    }
 
+    @And("Student's name, Admission No, Class, Section, and Gender. Verifies that elements are visible")
+    public void studentSNameAdmissionNoClassSectionAndGenderVerifiesThatElementsAreVisible() {
+        mustafa.parentMyProfileElementsVisiable();
+    }
+
+    @Given("Verifies that the Profile, Fees, Exam, and Documents tabs are visible.")
+    public void verifiesThatTheProfileFeesExamAndDocumentsTabsAreVisible() {
+    mustafa.parentMyProfileElementsVisiable2();
+    }
+
+    @And("User clicks profile tab")
+    public void userClicksProfileTab() {
+
+        mustafa.profileElement.click();
+    }
+
+    @And("Verifies that the headers appear under the profile tab")
+    public void verifiesThatTheHeadersAppearUnderTheProfileTab() {
+mustafa.profileElementsAssertMethod();
+    }
 }
 
 
