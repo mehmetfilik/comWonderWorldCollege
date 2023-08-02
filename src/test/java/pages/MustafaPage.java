@@ -314,5 +314,160 @@ public class MustafaPage extends Base {
         }
     }
 
+//*****************************US_047***********************************//
+
+    //StudentPage-> HomeworkTab
+    @FindBy(xpath = "(//a[@href='https://qa.wonderworldcollege.com/user/homework'])[1]")
+    public WebElement homeworkTab;
+
+    //HomeworkTab ->Upcoming Homework->ClassField
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[1]")
+    private WebElement classField;
+
+    //HomeworkTab ->Upcoming Homework->SectionField
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[2]")
+    private WebElement sectionField;
+
+    //HomeworkTab ->Upcoming Homework->SubjectField
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[3]")
+    private WebElement subjectField;
+
+    //HomeworkTab ->Upcoming Homework->HomeworkDate
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[4]")
+    private WebElement homeworkDateField;
+
+    //HomeworkTab ->Upcoming Homework->submissionDate
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[5]")
+    private WebElement submissionDateField;
+
+    //HomeworkTab ->Upcoming Homework->EvaluationDate
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[6]")
+    private WebElement evaluationDateField;
+
+    //HomeworkTab ->Upcoming Homework->MaxMarks
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[7]")
+    private WebElement maxMamrksField;
+
+    //HomeworkTab ->Upcoming Homework->MarksObtained
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[8]")
+    private WebElement marksObtainedField;
+
+    //HomeworkTab ->Upcoming Homework->Note
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[9]")
+    private WebElement noteField;
+
+    //HomeworkTab ->Upcoming Homework->Status
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[10]")
+    private WebElement statusField;
+
+    //HomeworkTab ->Upcoming Homework->Action
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[11]")
+    private WebElement actionField;
+
+
+
+    @FindBy(xpath = "//textarea[@name='message']")
+    private WebElement homeworkDetailsPage;
+
+    @FindBy(xpath = "(//span[@data-toggle='tooltip'])[1]")
+    public WebElement hamburgerMenuUnderAction;
+
+    @FindBy(xpath = "(//button[@type='submit'])[1]")
+    private WebElement saveButton4;
+
+    //HomeworkTab-> Daily Assignment
+    @FindBy(xpath = "//div[@class='box-tools pull-right']")
+    private WebElement   dailyAssignmentButton;
+
+    //HomeworkTab-> +Daily Assignment
+    @FindBy(xpath = "//div[@class='box-tools pull-right']")
+    private WebElement newDailyAssignmentButton;
+
+    //HomeworkTab-> +Daily Assignment->subjectDropDown
+    @FindBy(id = "subject")
+    private WebElement subjectDropDownElement;
+
+    //HomeworkTab-> +Daily Assignment->titleBox;
+    @FindBy(xpath = "//input[@name='title']")
+    private WebElement titleBox;
+
+    //HomeworkTab-> +Daily Assignment->descriptionBox
+    @FindBy(id = "description")
+    private WebElement descriptionBox2;
+
+    //HomeworkTab-> +Daily Assignment->saveButton;
+    @FindBy(xpath = "(//button[@type='submit'])[1]")
+    private WebElement saveButton5;
+
+    //Daily Assignment List -> Subject
+    @FindBy(xpath = "//*[@id=\'DataTables_Table_0\']/tbody/tr[1]/td[1]")
+    private WebElement subjectElement;
+
+
+
+
+    @FindBy(xpath = "//a[@data-original-title='Edit']")
+    private WebElement editButton2;
+
+    @FindBy(xpath = "(//button[@type='submit'])[2]")
+    private WebElement saveButton6;
+
+    @FindBy(xpath = "(//select[@class='form-control'])[2]")
+    private WebElement subjectDropDown2;
+
+
+
+
+
+    public void fieldAssertMethod(){
+        Assert.assertTrue(classField.isDisplayed());
+        Assert.assertTrue(sectionField.isDisplayed());
+        Assert.assertTrue(subjectField.isDisplayed());
+        Assert.assertTrue(homeworkDateField.isDisplayed());
+        Assert.assertTrue(submissionDateField.isDisplayed());
+        Assert.assertTrue(actionField.isDisplayed());
+        Assert.assertTrue(noteField.isDisplayed());
+        Assert.assertTrue(statusField.isDisplayed());
+        Assert.assertTrue(marksObtainedField.isDisplayed());
+        Assert.assertTrue(maxMamrksField.isDisplayed());
+        Assert.assertTrue(evaluationDateField.isDisplayed());
+
+    }
+
+    public void homeworkDetailsPage(){
+        hamburgerMenuUnderAction.click();
+        Assert.assertTrue(homeworkDetailsPage.isDisplayed());
+        homeworkDetailsPage.sendKeys("Let's finish the homework on time.");
+        saveButton4.click();
+    }
+
+    public void newdailyAssignment(){
+        dailyAssignmentButton.click();
+        newDailyAssignmentButton.click();
+        select =new Select(subjectDropDownElement);
+        select.selectByVisibleText("Mathematics (110) ");
+
+        titleBox.sendKeys("Integral");
+        descriptionBox2.sendKeys("Please finish the integral homework in 2 days");
+        saveButton5.click();
+        Assert.assertTrue(subjectElement.isDisplayed());
+    }
+
+    public void updateNewdailyAssignment(){
+        ReusableMethods.bekle(3);
+        editButton2.click();
+        select =new Select(subjectDropDown2);
+        select.selectByVisibleText("Computer (220)");
+        ReusableMethods.bekle(2);
+        saveButton6.click();
+
+    }
+
+
+
+
+
+
+
 
 }
