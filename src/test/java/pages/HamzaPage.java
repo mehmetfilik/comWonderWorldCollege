@@ -168,4 +168,191 @@ public class HamzaPage extends Base {
     //Admin Edit Student -> Edit Save Alert
     @FindBy (xpath = "//div[text()='Record Updated Successfully']")
     public WebElement studentEditSaveAlert;
+
+    //Admin Student List -> Add Fees Icon
+    @FindBy (xpath ="(//*[@href='https://qa.wonderworldcollege.com/studentfee/addfee/160'])[1]")
+    public WebElement studentListAddFeesIcon;
+
+    //Admin Fees Collection -> Fees Collection Icon
+    @FindBy (xpath ="//*[text()='Fees Collection']")
+    public WebElement adminFeesCollectionIcon;
+
+    //Admin Fees Collection -> Fees Master Icon
+    @FindBy (xpath ="(//*[text()='Fees Master'])[2]")
+    public WebElement adminFeesMasterIcon;
+
+
+
+    //Admin Fees Collection -> Fees Group Icon
+    @FindBy (xpath ="(//th[text()='Fees Group'])[1]")
+    public WebElement adminFeesFeesGroupIcon;
+
+    //Admin Fees Collection -> Fees Code Icon
+    @FindBy (xpath ="(//th[text()='Fees Code'])[1]")
+    public WebElement adminFeesFeesCodeIcon;
+
+    //Admin Fees Collection -> Due Date Icon
+    @FindBy (xpath ="(//th[text()='Due Date'])[1]")
+    public WebElement adminFeesDueDateIcon;
+
+    //Admin Fees Collection -> Status Icon
+    @FindBy (xpath ="(//th[text()='Status'])[1]")
+    public WebElement adminFeesStatusIcon;
+
+
+    //Admin Fees Collection -> Amount Icon
+    @FindBy (xpath ="//*[@id=\"DataTables_Table_0\"]/thead[1]/tr/th[5]")
+    public WebElement adminFeesAmountIcon;
+
+
+    //Admin Fees Collection -> Payment ID Icon
+    @FindBy (xpath ="(//th[text()='Payment ID'])[1]")
+    public WebElement adminFeesPaymentIDIcon;
+
+
+    //Admin Fees Collection -> Mode Icon
+    @FindBy (xpath ="(//th[text()='Mode'])[1]")
+    public WebElement adminFeesModeIcon;
+
+
+    //Admin Fees Collection -> Date Icon
+    @FindBy (xpath ="(//th[text()='Date'])[1]")
+    public WebElement adminFeesDateIcon;
+
+
+    //Admin Fees Collection -> Discount Icon
+    @FindBy (xpath ="//*[@id=\"DataTables_Table_0\"]/thead[1]/tr/th[10]")
+    public WebElement adminFeesDiscountIcon;
+
+
+    //Admin Fees Collection -> Fine Icon
+    @FindBy (xpath ="//*[@id=\"DataTables_Table_0\"]/thead[1]/tr/th[11]")
+    public WebElement adminFeesFineIcon;
+
+
+    //Admin Fees Collection -> Paid Icon
+    @FindBy (xpath ="//*[@id=\"DataTables_Table_0\"]/thead[1]/tr/th[12]")
+    public WebElement adminFeesPaidIcon;
+
+
+    //Admin Fees Collection -> Balance Icon
+    @FindBy (xpath ="//*[@id=\"DataTables_Table_0\"]/thead[1]/tr/th[13]")
+    public WebElement adminFeesBalanceIcon;
+
+
+    //Admin Fees Collection -> Action Icon
+    @FindBy (xpath ="(//th[text()='Action'])[1]")
+    public WebElement adminFeesActionIcon;
+
+    //Admin Fees Collection -> Admin Bar Money Icon
+    @FindBy (xpath ="//*[@id=\"alert\"]/nav/div[2]/div/div/div[1]/div/button/span[1]")
+    public WebElement adminFeesBarMoneyIcon;
+
+    //Admin Fees Collection -> Admin Bar Euro Icon
+    @FindBy (xpath ="//*[@id=\"alert\"]/nav/div[2]/div/div/div[1]/div/div/ul/li[1]/a")
+    public WebElement adminFeesBarEuroIcon;
+
+    //Admin Fees Collection -> Fees List Euro Icon
+    @FindBy (xpath ="//*[@id=\"DataTables_Table_0\"]/thead[1]/tr/th[6]/span")
+    public WebElement adminFeesListEuroIcon;
+
+    //Admin Fees Collection -> Add Fee + Icon
+    @FindBy (xpath ="//*[@id=\"DataTables_Table_0\"]/tbody/tr[2]/td[14]/div/div/button[1]")
+    public WebElement adminFeesActionPlusIcon;
+
+    //Admin Fees Collection -> Amount Popup
+    @FindBy (id = "amount")
+    public WebElement adminFeesAmountPopup;
+
+    //Admin Fees Collection -> Amount Popup Collect Fees
+    @FindBy (xpath = "(//*[@id='load'])[3]")
+    public WebElement adminFeesAmountPopupCollectFees;
+
+    //Admin Fees Collection -> Entered Amount Text
+    @FindBy (xpath = "//*[@id=\"DataTables_Table_0\"]/tbody/tr[3]/td[12]")
+    public WebElement adminFeesEnteredAmountText;
+
+    //Admin Fees Collection -> Amount Add Fee Revert Icon
+    @FindBy (xpath = "//*[@id=\"DataTables_Table_0\"]/tbody/tr[3]/td[14]/div/div/button[1]")
+    public WebElement adminFeesRevertIcon;
+
+    //Admin Fees Collection -> Revert Assent
+    @FindBy (xpath = "//*[@id=\"confirm-delete\"]/div/div/div[3]/a")
+    public WebElement adminFeesRevertAssentIcon;
+
+    //Admin Fees Collection -> Balance Text
+    @FindBy (xpath = "//*[@id=\"DataTables_Table_0\"]/tbody/tr[4]/td[12]")
+    public WebElement adminFeesBalanceText;
+
+    //Admin Fees Collection -> Paid
+    @FindBy (xpath = "//*[@id=\"DataTables_Table_0\"]/tbody/tr[2]/td[12]")
+    public WebElement adminFeesPaidLine;
+
+    //Admin Fees Collection -> Total Paid
+    @FindBy (xpath = "//*[@id=\"DataTables_Table_0\"]/tbody/tr[5]/td[12]")
+    public WebElement adminFeesTotalPaid;
+
+    //Admin Fees Collection -> Balance One
+    @FindBy (xpath = "//*[@id=\"DataTables_Table_0\"]/tbody/tr[2]/td[13]")
+    public WebElement adminFeesBalanceOne;
+
+    //Admin Fees Collection -> Balance Two
+    @FindBy (xpath = "//*[@id=\"DataTables_Table_0\"]/tbody/tr[4]/td[13]")
+    public WebElement adminFeesBalanceTwo;
+
+    //Admin Fees Collection -> Total Balance
+    @FindBy (xpath = "//*[@id=\"DataTables_Table_0\"]/tbody/tr[5]/td[13]")
+    public WebElement adminFeesTotalBalance;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //======================================================================
+    //US_025
+
+    //Admin Fees Collection -> Fees Master Head
+    @FindBy (xpath ="//*[text()='Add Fees Master : 2022-23']")
+    public WebElement adminFeesMasterHead;
+
+    //Admin Fees Collection -> Fees Group Text
+    @FindBy (xpath ="(//*[text()='Fees Group'])[3]")
+    public WebElement adminFeesGroupText;
+
+    //Admin Fees Collection -> Fees Type Text
+    @FindBy (xpath ="(//*[text()='Fees Type'])[3]")
+    public WebElement adminFeesTypeText;
+
+    //Admin Fees Collection -> Due Date Text
+    @FindBy (xpath ="(//*[text()='Due Date'])[1]")
+    public WebElement adminFeesDueDateText;
+
+    //Admin Fees Collection -> Amount Text
+    @FindBy (xpath =" Amount ($)")
+    public WebElement adminFeesAmountText;
+
+
+
+
+
+
+
+
+
 }
