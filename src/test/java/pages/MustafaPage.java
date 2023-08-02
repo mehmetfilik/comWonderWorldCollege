@@ -16,7 +16,6 @@ public class MustafaPage extends Base {
     //*****************************[US_029]***********************************//
 
 
-
     // Admin Panel-> Front Office tab
     @FindBy(xpath = "//span[text()='Front Office']")
     public WebElement frontOfficeTab;
@@ -173,19 +172,19 @@ public class MustafaPage extends Base {
         Assert.assertEquals(expectedText, actualText);
     }
 
-    public void grievanceUpdateTestMethod(){
+    public void grievanceUpdateTestMethod() {
         String expectedText = "Record Updated Successfully";
         String actualText = recordSavedSuccessfullyTextElemet.getText();
         Assert.assertEquals(expectedText, actualText);
     }
 
-    public void grievanceDeleteTestMethod(){
+    public void grievanceDeleteTestMethod() {
         String expectedText = "Record Delete Successfully";
         String actualText = recordSavedSuccessfullyTextElemet.getText();
         Assert.assertEquals(expectedText, actualText);
     }
 
-    public void alertaccept(){
+    public void alertaccept() {
         Driver.getDriver().switchTo().alert().accept();
     }
 
@@ -202,7 +201,6 @@ public class MustafaPage extends Base {
     }
 
 
-
     public void elementsDisplayedMethod() {
         Assert.assertTrue(complaintTypeElement.isDisplayed());
         Assert.assertTrue(complainByElement.isDisplayed());
@@ -215,7 +213,6 @@ public class MustafaPage extends Base {
         Assert.assertTrue(sourceElement.isDisplayed());
         Assert.assertTrue(saveButton.isDisplayed());
     }
-
 
 
     public void complainHeaderElementTestMethod() {
@@ -231,7 +228,7 @@ public class MustafaPage extends Base {
 
     // Homepage -> Login Button
     @FindBy(xpath = "//a[@class='complainbtn']")
-    private WebElement loginButton;
+    public WebElement loginButton;
 
     // Student-Parent LoginPage -> Email Box
     @FindBy(id = "email")
@@ -248,25 +245,54 @@ public class MustafaPage extends Base {
     @FindBy(xpath = "//div[@class='alert alert-danger']")
     private WebElement deleteSuccessfullyTextElemet;
 
+    // loginPage ForgotPasswordButton
+    @FindBy(xpath = "//a[@class='forgot']")
+    public WebElement forgotPasswordButton;
 
-    public void negativeStudentLoginAssert(){
+    //ForgotPasswordPage emailBox;
+    @FindBy(id = "form-username")
+    public WebElement forgotEmailBox;
 
-        String actualText=deleteSuccessfullyTextElemet.getText();
-        String expectedText="Invalid Username Or Password";
-        Assert.assertEquals(expectedText,actualText);
+    ////ForgotPasswordPage studentRadioButton
+    @FindBy(xpath = "//input[@value='student']")
+    public WebElement studentRadioButton;
+
+
+    //ForgotPasswordPage submitButton;
+    @FindBy(xpath = "//button[@class='btn']")
+    public WebElement forgotPasswordSubmitButton;
+
+    @FindBy(xpath = "//div[@class='alert alert-danger']")
+    private WebElement errorMesageTextElemet;
+
+    public void passwordChangeAssertMethod(){
+
+
+      if (errorMesageTextElemet.isDisplayed()){
+          Assert.assertTrue(false);
+      }else {
+          Assert.assertTrue(true);
+      }
+    }
+
+    public void negativeStudentLoginAssert() {
+
+        String actualText = deleteSuccessfullyTextElemet.getText();
+        String expectedText = "Invalid Username Or Password";
+        Assert.assertEquals(expectedText, actualText);
         System.out.println(deleteSuccessfullyTextElemet.getText());
     }
 
     //***********************************US_045*****************************************//
 
     @FindBy(xpath = "//i[@class='fa fa-key']")
-    public WebElement  changePasswordButton;
+    public WebElement changePasswordButton;
 
     @FindBy(xpath = "//img[@alt='User Image']")
     public WebElement profileImgElement;
 
     @FindBy(xpath = "//a[normalize-space()='Change Username']")
-    public  WebElement changeUsername;
+    public WebElement changeUsername;
 
     @FindBy(xpath = "//input[@name='current_username']")
     public WebElement currentUsernameBox;
@@ -280,13 +306,166 @@ public class MustafaPage extends Base {
     public WebElement saveButton3;
 
 
-    public void usernameChangeTestMethod(){
-        if (currentUsernameBox.isDisplayed()){
+    public void usernameChangeTestMethod() {
+        if (currentUsernameBox.isDisplayed()) {
             Assert.assertTrue(false);
-        }else {
+        } else {
             Assert.assertTrue(true);
         }
     }
+
+//*****************************US_047***********************************//
+
+    //StudentPage-> HomeworkTab
+    @FindBy(xpath = "(//a[@href='https://qa.wonderworldcollege.com/user/homework'])[1]")
+    public WebElement homeworkTab;
+
+    //HomeworkTab ->Upcoming Homework->ClassField
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[1]")
+    private WebElement classField;
+
+    //HomeworkTab ->Upcoming Homework->SectionField
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[2]")
+    private WebElement sectionField;
+
+    //HomeworkTab ->Upcoming Homework->SubjectField
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[3]")
+    private WebElement subjectField;
+
+    //HomeworkTab ->Upcoming Homework->HomeworkDate
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[4]")
+    private WebElement homeworkDateField;
+
+    //HomeworkTab ->Upcoming Homework->submissionDate
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[5]")
+    private WebElement submissionDateField;
+
+    //HomeworkTab ->Upcoming Homework->EvaluationDate
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[6]")
+    private WebElement evaluationDateField;
+
+    //HomeworkTab ->Upcoming Homework->MaxMarks
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[7]")
+    private WebElement maxMamrksField;
+
+    //HomeworkTab ->Upcoming Homework->MarksObtained
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[8]")
+    private WebElement marksObtainedField;
+
+    //HomeworkTab ->Upcoming Homework->Note
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[9]")
+    private WebElement noteField;
+
+    //HomeworkTab ->Upcoming Homework->Status
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[10]")
+    private WebElement statusField;
+
+    //HomeworkTab ->Upcoming Homework->Action
+    @FindBy(xpath = "//*[@id=\"DataTables_Table_0\"]/thead/tr/th[11]")
+    private WebElement actionField;
+
+
+
+    @FindBy(xpath = "//textarea[@name='message']")
+    private WebElement homeworkDetailsPage;
+
+    @FindBy(xpath = "(//span[@data-toggle='tooltip'])[1]")
+    public WebElement hamburgerMenuUnderAction;
+
+    @FindBy(xpath = "(//button[@type='submit'])[1]")
+    private WebElement saveButton4;
+
+    //HomeworkTab-> Daily Assignment
+    @FindBy(xpath = "//div[@class='box-tools pull-right']")
+    private WebElement   dailyAssignmentButton;
+
+    //HomeworkTab-> +Daily Assignment
+    @FindBy(xpath = "//div[@class='box-tools pull-right']")
+    private WebElement newDailyAssignmentButton;
+
+    //HomeworkTab-> +Daily Assignment->subjectDropDown
+    @FindBy(id = "subject")
+    private WebElement subjectDropDownElement;
+
+    //HomeworkTab-> +Daily Assignment->titleBox;
+    @FindBy(xpath = "//input[@name='title']")
+    private WebElement titleBox;
+
+    //HomeworkTab-> +Daily Assignment->descriptionBox
+    @FindBy(id = "description")
+    private WebElement descriptionBox2;
+
+    //HomeworkTab-> +Daily Assignment->saveButton;
+    @FindBy(xpath = "(//button[@type='submit'])[1]")
+    private WebElement saveButton5;
+
+    //Daily Assignment List -> Subject
+    @FindBy(xpath = "//*[@id=\'DataTables_Table_0\']/tbody/tr[1]/td[1]")
+    private WebElement subjectElement;
+
+
+
+
+    @FindBy(xpath = "//a[@data-original-title='Edit']")
+    private WebElement editButton2;
+
+    @FindBy(xpath = "(//button[@type='submit'])[2]")
+    private WebElement saveButton6;
+
+    @FindBy(xpath = "(//select[@class='form-control'])[2]")
+    private WebElement subjectDropDown2;
+
+
+
+
+
+    public void fieldAssertMethod(){
+        Assert.assertTrue(classField.isDisplayed());
+        Assert.assertTrue(sectionField.isDisplayed());
+        Assert.assertTrue(subjectField.isDisplayed());
+        Assert.assertTrue(homeworkDateField.isDisplayed());
+        Assert.assertTrue(submissionDateField.isDisplayed());
+        Assert.assertTrue(actionField.isDisplayed());
+        Assert.assertTrue(noteField.isDisplayed());
+        Assert.assertTrue(statusField.isDisplayed());
+        Assert.assertTrue(marksObtainedField.isDisplayed());
+        Assert.assertTrue(maxMamrksField.isDisplayed());
+        Assert.assertTrue(evaluationDateField.isDisplayed());
+
+    }
+
+    public void homeworkDetailsPage(){
+        hamburgerMenuUnderAction.click();
+        Assert.assertTrue(homeworkDetailsPage.isDisplayed());
+        homeworkDetailsPage.sendKeys("Let's finish the homework on time.");
+        saveButton4.click();
+    }
+
+    public void newdailyAssignment(){
+        dailyAssignmentButton.click();
+        newDailyAssignmentButton.click();
+        select =new Select(subjectDropDownElement);
+        select.selectByVisibleText("Mathematics (110) ");
+
+        titleBox.sendKeys("Integral");
+        descriptionBox2.sendKeys("Please finish the integral homework in 2 days");
+        saveButton5.click();
+        Assert.assertTrue(subjectElement.isDisplayed());
+    }
+
+    public void updateNewdailyAssignment(){
+        ReusableMethods.bekle(3);
+        editButton2.click();
+        select =new Select(subjectDropDown2);
+        select.selectByVisibleText("Computer (220)");
+        ReusableMethods.bekle(2);
+        saveButton6.click();
+
+    }
+
+
+
+
 
 
 
