@@ -26,6 +26,7 @@ Feature: [US_004] As a student, I want a page on the website where I can view my
     And Redirected to the 'Exam Result' page
     And Verify the existance of Search button
     And Enter data in Admission No text box and select Exam from Exam text box
+    And Wait for visibility of element
     And Click on the Search button to verify usage of the Search button
     Then Close the browser
 
@@ -34,6 +35,7 @@ Feature: [US_004] As a student, I want a page on the website where I can view my
     And Click on the 'Exam Result' menu title
     And Redirected to the 'Exam Result' page
     And Enter data in Admission No text box and select Exam from Exam text box
+    And Wait for visibility of element
     When Click on the Search button to verify usage of the Search button
     Then Open a window that shows the student's exam results
     And Close the browser
@@ -43,6 +45,7 @@ Feature: [US_004] As a student, I want a page on the website where I can view my
     And Click on the 'Exam Result' menu title
     And Redirected to the 'Exam Result' page
     And Enter data in Admission No text box and select Exam from Exam text box
+    And Wait for visibility of element
     When Click on the Search button to verify usage of the Search button
     Then Open a window that shows the student's exam results
     And Verify that Student Name, Roll Number and Admission No is displayed in open window.
@@ -53,6 +56,7 @@ Feature: [US_004] As a student, I want a page on the website where I can view my
     And Click on the 'Exam Result' menu title
     And Redirected to the 'Exam Result' page
     And Enter data in Admission No text box and select Exam from Exam text box
+    And Wait for visibility of element
     When Click on the Search button to verify usage of the Search button
     Then Open a window that shows the student's exam results
     And Confirm that exam results are listed with the headings Subject, Max Marks, Min Marks, Marks Obtained, and Note
@@ -63,6 +67,7 @@ Feature: [US_004] As a student, I want a page on the website where I can view my
     And Click on the 'Exam Result' menu title
     And Redirected to the 'Exam Result' page
     And Enter data in Admission No text box and select Exam from Exam text box
+    And Wait for visibility of element
     When Click on the Search button to verify usage of the Search button
     Then Open a window that shows the student's exam results
     And Verify correct displaying of calculated Percentage, Rank, Result, Division, Grand Total, and Total Obtain Marks based on exam results
