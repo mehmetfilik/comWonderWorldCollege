@@ -155,6 +155,8 @@ public class FerhatPage{
     @FindBy(xpath = "(//button[@type='submit'])[1]")
     public WebElement stdntSave2;
 
+    @FindBy(xpath = "//*[@class='active']")
+    public WebElement changePasswordTitle;
 
 
 
