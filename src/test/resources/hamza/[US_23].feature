@@ -11,7 +11,6 @@ Scenario: [TC_001-->US_023] Verify Student Details and Search Page
   And User clicks on the Student Details link
   Then User is redirected to the search page
   And Search page displays Class and Section dropdowns and two search buttons which are visible and active
-
     Given User performs a search in the Class 2 and Section "A" dropdowns based on pre-condition
     Then A list with headers Admission No, Student Name, Class, Father Name, Date Of Birth, Gender, Category, Mobile Number, Action is displayed
     And User verifies that the student name in the list is clickable and opens the student's profile page
