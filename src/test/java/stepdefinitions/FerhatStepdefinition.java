@@ -347,6 +347,7 @@ public class FerhatStepdefinition {
         ferhatPage.saveAndSavEnrrol2.click();
         Actions actions = new Actions(Driver.getDriver());
         actions.sendKeys(Keys.PAGE_DOWN).perform();
+        Driver.quitDriver();
 
     }
 
