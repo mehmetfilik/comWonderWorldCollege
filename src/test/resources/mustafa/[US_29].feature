@@ -1,4 +1,4 @@
-@wip
+
 Feature: [US_29] Complaints page test
 
   Background:
