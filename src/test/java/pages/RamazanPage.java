@@ -205,6 +205,8 @@ public class RamazanPage extends Base {
     @FindBy(xpath = "//input[@id='confirm_pass']")
     public WebElement confirmPasswordElement;
 
+    @FindBy(xpath = "")
+    public WebElement errorMessageElement;
 
     //Change Username Page >> Change Username button
     @FindBy(xpath = "//a[normalize-space()='Change Username']")
@@ -230,6 +232,8 @@ public class RamazanPage extends Base {
     // public WebElement toastMessageScheduleSuccessfully;
 
 
+    @FindBy(xpath = "")
+    public WebElement usernameMenuElement;
     public void verifyThatTheClassSectionApplyDateFromDateToDateReasonStatusAndActionColumnsAreVisibleOnTheOpenedPage() {
         classColumn.isDisplayed();
         sectionColumn.isDisplayed();
