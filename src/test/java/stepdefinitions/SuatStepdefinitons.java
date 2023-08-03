@@ -416,6 +416,7 @@ public class SuatStepdefinitons {
 
 //-----------------------------------US_028--------------------------------------
 
+
     @And("Click on the Income menu on the sidebar")
     public void clickOnTheIncomeMenuOnTheSidebar() {
         suatPage.incomeNavElement.click();
@@ -462,7 +463,8 @@ public class SuatStepdefinitons {
         suatPage.incomeNameBox.sendKeys("Ibrahim K");
         suatPage.invoiceNoBox.sendKeys("10009");
         suatPage.amountBox.sendKeys("1000");
-        //---->date girilecek
+        suatPage.incomeDateBox.click();
+        suatPage.spesicficDay.click();
 
     }
 
@@ -502,5 +504,4 @@ public class SuatStepdefinitons {
         Select select= new Select(suatPage.incomeRecordNumber);
         select.selectByIndex(1);
     }
-
 }
