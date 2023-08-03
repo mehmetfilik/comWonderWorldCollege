@@ -1,3 +1,4 @@
+@mustafa
 Feature: [US_047]  As a user, I should be able to access the "Homework" page and make changes to my assignments  When entering the Student Panel
 
   Background:
@@ -30,7 +31,7 @@ Feature: [US_047]  As a user, I should be able to access the "Homework" page and
     And Changes the information on the Edit Daily Assignment page and clicks the "Save" button.
     And Verifies that assignment information has been updated.
     And Click the Delete icon under the Action section
-    Then verifies that the assignment was deleted.
+    Then Verifies that "Successfully deleted" appears
     And The user closes the page
 
 

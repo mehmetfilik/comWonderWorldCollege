@@ -415,6 +415,12 @@ public class MustafaPage extends Base {
     @FindBy(xpath = "(//select[@class='form-control'])[2]")
     private WebElement subjectDropDown2;
 
+    @FindBy(xpath = "//a[@title='Delete']")
+    public WebElement deleteButton2;
+
+    @FindBy(xpath = "//input[@type='search']")
+    public WebElement searchBox;
+
 
 
 
@@ -462,6 +468,8 @@ public class MustafaPage extends Base {
         saveButton6.click();
 
     }
+
+
 
 
 //************************************US_056****************************************//
