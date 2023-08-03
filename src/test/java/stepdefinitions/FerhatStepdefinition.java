@@ -498,20 +498,31 @@ public class FerhatStepdefinition {
     @Then("User incorrectly enters new password with at least six characters")
     public void userincorrectlyentersnewpasswordwithatleastsixcharacters() {
         ferhatPage.oldPassword.sendKeys("wonderworld");
-        ferhatPage.newPasword.sendKeys("12.");
-        ferhatPage.repeatPassword.sendKeys("12f.");
+        ferhatPage.newPasword.sendKeys("123dF.");
+        ferhatPage.repeatPassword.sendKeys("123dF.");
         ReusableMethods.bekle(2);
 
 }
     @And("User receives message on incorrect password entries")
     public void userReceivesMessageOnIncorrectPasswordEntries(){
         ferhatPage.stdntSave.click();
+        ReusableMethods.bekle(1);
+        String str = ferhatPage.changePasswordTitle.getText();
+        Assert.assertTrue(str.contains("changeUserName"));
+
 
     }
+
 
     @Then("User correctly enters new password with at least six characters")
     public void userCorrectlyEntersNewPasswordWithAtLeastSixCharacters() {
         ferhatPage.stdntSave2.click();
+    }
+
+    @And("User closes the browser")
+    public void userClosesTheBrowser() {
+        ReusableMethods.waitForPageToLoad(4);
+        Driver.quitDriver();
     }
 }
 
