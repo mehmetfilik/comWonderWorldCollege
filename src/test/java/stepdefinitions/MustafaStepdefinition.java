@@ -240,7 +240,7 @@ public class MustafaStepdefinition {
     }
 
     @And("User enters new username with less than {int} characters.")
-    public void userEntersNewUsernameWithLessThanCharacters(int arg0) {
+    public void userEntersNewUsernameWithLessThanCharacters() {
         mustafa.currentUsernameBox.sendKeys("std142");
         mustafa.newUsernameBox.sendKeys("std");
         mustafa.confirmUsernameBox.sendKeys("std");
@@ -287,8 +287,8 @@ public class MustafaStepdefinition {
 
     @Given("The user enters the new username with the correct combination.")
     public void theUserEntersTheNewUsernameWithTheCorrectCombination() {
-
-        mustafa.currentUsernameBox.sendKeys("std142");
+        common.parentOrStudentLoginMethod("std","wonderworld123");
+        mustafa.currentUsernameBox.sendKeys("std");
         mustafa.newUsernameBox.sendKeys("std142");
         mustafa.confirmUsernameBox.sendKeys("std142");
         mustafa.saveButton3.click();
@@ -359,7 +359,7 @@ public class MustafaStepdefinition {
 
     @Then("Verifies that a new assignment has been added.")
     public void verifies_that_a_new_assignment_has_been_added() {
-
+        mustafa.updateNewdailyAssignment();
     }
 
 
@@ -380,12 +380,27 @@ public class MustafaStepdefinition {
 
     @Given("Click the Delete icon under the Action section")
     public void click_the_delete_icon_under_the_action_section() {
+        ReusableMethods.bekle(3);
+        mustafa.deleteButton2.click();
+       Alert alert= Driver.getDriver().switchTo().alert();
+       alert.accept();
+
+       if (mustafa.searchBox.isDisplayed()){
+           Assert.assertTrue(false);
+       }else{
+           Assert.assertTrue(true);
+       }
 
     }
 
     @Then("verifies that the assignment was deleted.")
     public void verifies_that_the_assignment_was_deleted() {
         mustafa.updateNewdailyAssignment();
+    }
+
+    @Then("Verifies that {string} appears")
+    public void verifiesThatAppears(String arg0) {
+
     }
 //********************************US_056***********************************//
 
@@ -424,6 +439,8 @@ public class MustafaStepdefinition {
     public void verifiesThatTheHeadersAppearUnderTheProfileTab() {
 mustafa.profileElementsAssertMethod();
     }
+
+
 }
 
 
