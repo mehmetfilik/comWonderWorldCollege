@@ -128,6 +128,7 @@ public class RamazanStepdefinitons extends Base {
 
     @And("Write a note in the textbox below the message and click on the Save button.")
     public void writeANoteInTheTextboxBelowTheMessageAndClickOnTheSaveButton() {
+        ramazanPage.textBox.sendKeys("Good");
 
     }
 
@@ -237,7 +238,7 @@ public class RamazanStepdefinitons extends Base {
 
         //Teacher selects English (210) from Subject dropdown menu
         Select subjectSelect = new Select(ramazanPage.subjectDropdownMenu);
-        subjectSelect.selectByVisibleText("English (210)");
+        subjectSelect.selectByVisibleText("Mathematics (110)");
 
         ramazanPage.searchButton.click();
     }
@@ -252,9 +253,9 @@ public class RamazanStepdefinitons extends Base {
         ramazanPage.checkBox.click();
         ramazanPage.deleteButton.click();
 
-        Driver.getDriver().switchTo().alert().accept();
-        Thread.sleep(1000);
-        Driver.getDriver().switchTo().defaultContent();
+        //Driver.getDriver().switchTo().alert().accept();
+        //Thread.sleep(1000);
+        //Driver.getDriver().switchTo().defaultContent();
     }
 
     @Then("Verify that the message Record deleted successfully is displayed.")
@@ -387,7 +388,7 @@ public class RamazanStepdefinitons extends Base {
 
     @And("Enter the correct username and password, then click on the Sign In button.")
     public void enterTheCorrectUsernameAndPasswordThenClickOnTheSignInButton() {
-        ramazanPage.parentLoginEmailBox.sendKeys("par");
+        ramazanPage.parentLoginEmailBox.sendKeys("parent145");
         ramazanPage.parentLoginPasswordBox.sendKeys("wonderworld123");
         ramazanPage.parentLoginSubmitButton.click();
 
@@ -400,7 +401,7 @@ public class RamazanStepdefinitons extends Base {
 
     @Given("User logs in to the parent panel")
     public void userLogsInToTheParentPanel() {
-        common.parentOrStudentLoginMethod("par","wonderworld123");
+        common.parentOrStudentLoginMethod("parent145","wonderworld123");
     }
 
     @And("Click on the profile photo in the top right corner.")
@@ -423,36 +424,57 @@ public class RamazanStepdefinitons extends Base {
         ramazanPage.changePasswordButton.isDisplayed();
     }
 
-    @And("The user enters a new password that is less than {int} characters long.")
-    public void theUserEntersANewPasswordThatIsLessThanCharactersLong(int arg0) {
-        
+    @And("The user enters a current password")
+    public void theUserEntersACurrentPassword() {
+        ramazanPage.currentPasswordElement.sendKeys("Wonder.123");
     }
 
-    @And("The user enters a new password without any uppercase letters or special characters.")
-    public void theUserEntersANewPasswordWithoutAnyUppercaseLettersOrSpecialCharacters() {
+    @And("The user enters an incorrect password")
+    public void theUserEntersAnIncorrectPassword() {
+        ramazanPage.newPasswordElement.sendKeys("wonderworld123");
     }
 
+    @And("The user confirms incorrect password")
+    public void theUserConfirmsIncorrectPassword() {
+        ramazanPage.confirmPasswordElement.sendKeys("wonderworld123");
+    }
+    
     @Then("Verify that the user encounters an error message indicating the inability to change the password.")
     public void verifyThatTheUserEncountersAnErrorMessageIndicatingTheInabilityToChangeThePassword() {
-
+        ramazanPage.errorMessageElement.isDisplayed();
     }
+    
 
-    @And("The user enters a new password that is at least {int} characters long and contains at least one uppercase letter and one special character.")
-    public void theUserEntersANewPasswordThatIsAtLeastCharactersLongAndContainsAtLeastOneUppercaseLetterAndOneSpecialCharacter(int arg0) {
-        ramazanPage.currentPasswordElement.sendKeys("wonderworld123");
-        ramazanPage.newPasswordElement.sendKeys("Wonder.123");
-        ramazanPage.confirmPasswordElement.sendKeys("Wonder.123");
+    @And("The user clicks the save button")
+    public void theUserClicksTheSaveButton() {
         ramazanPage.saveButtonPasswordPage.click();
     }
 
-    @Then("Verify that the user encounters the message Password has been changed successfully.")
-    public void verifyThatTheUserEncountersTheMessagePasswordHasBeenChangedSuccessfully() {
-
-    }
 
     //=======================US_055========================
 
     @Then("Verify that the Change Username button is visible in the menu.")
     public void verifyThatTheChangeUsernameButtonIsVisibleInTheMenu() {
+        ramazanPage.usernameMenuElement.isDisplayed();
+    }
+
+    @And("User quit browser")
+    public void userQuitBrowser() {
+        Driver.quitDriver();
+    }
+
+    @And("The user enters a valid password")
+    public void theUserEntersAValidPassword() {
+        ramazanPage.newPasswordElement.sendKeys("wonderworld123");
+    }
+
+    @And("The user confirms a valid password")
+    public void theUserConfirmsAValidPassword() {
+        ramazanPage.confirmPasswordElement.sendKeys("wonderworld123");
+    }
+
+    @Then("Verify that the user encounters the message Password has been changed successfully.")
+    public void verifyThatTheUserEncountersTheMessagePasswordHasBeenChangedSuccessfully() {
+        ramazanPage.successMessageElement.isDisplayed();
     }
 }

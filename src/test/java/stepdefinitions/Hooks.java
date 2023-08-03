@@ -1,4 +1,4 @@
-package utilities;
+package stepdefinitions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
@@ -13,7 +13,9 @@ public class Hooks {
         if (scenario.isFailed()) {
             final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png","screenshots");
-            Driver.closeDriver();
+
+            Driver.quitDriver();
+
         }
     }
 }

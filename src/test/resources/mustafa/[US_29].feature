@@ -1,4 +1,4 @@
-@us029
+
 Feature: [US_29] Complaints page test
 
   Background:
@@ -38,7 +38,6 @@ Feature: [US_29] Complaints page test
     Given User, click on the View  icon under the Action heading.
     Then User Verifies that Complaint details are displayed.
     And The user closes the page
-
 
 
   Scenario:[TC_006->US_29] Admin should be able to update complaint information

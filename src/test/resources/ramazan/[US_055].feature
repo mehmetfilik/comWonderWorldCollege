@@ -8,3 +8,6 @@ Feature: User should change username from Student page in Parent Panel.
   @[US_055_TC_001]
     Scenario: User accesses Change Username link and gets redirected to the relevant page.
     Then Verify that the Change Username button is visible in the menu.
+    And User quit browser
+
+

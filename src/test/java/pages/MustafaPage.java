@@ -415,6 +415,12 @@ public class MustafaPage extends Base {
     @FindBy(xpath = "(//select[@class='form-control'])[2]")
     private WebElement subjectDropDown2;
 
+    @FindBy(xpath = "//a[@title='Delete']")
+    public WebElement deleteButton2;
+
+    @FindBy(xpath = "//input[@type='search']")
+    public WebElement searchBox;
+
 
 
 
@@ -461,6 +467,93 @@ public class MustafaPage extends Base {
         ReusableMethods.bekle(2);
         saveButton6.click();
 
+    }
+
+
+
+
+//************************************US_056****************************************//
+    //Parent--> MyProfile
+    @FindBy(xpath = "//*[@id=\"sibe-box\"]/li[2]/a/span")
+    public WebElement myProfileTab;
+
+    //Parent--> My Profile--> class
+    @FindBy(xpath = "//li[@class='list-group-item border0']")
+    private WebElement classElement;
+
+    //Parent--> My Profile--> section
+    @FindBy(xpath = "(//li[@class='list-group-item'])[1]")
+    private WebElement sectionElement;
+
+    //Parent--> My Profile--> gender
+    @FindBy(xpath = "(//li[@class='list-group-item'])[2]")
+    private WebElement genderElement;
+
+    //Parent--> My Profile--> barcode
+    @FindBy(xpath = "//li[@class='list-group-item listnoback']")
+    private WebElement barcodeElement;
+
+
+    public void parentMyProfileElementsVisiable(){
+
+        Assert.assertTrue(classElement.isDisplayed());
+        Assert.assertTrue(sectionElement.isDisplayed());
+        Assert.assertTrue(genderElement.isDisplayed());
+        Assert.assertTrue(barcodeElement.isDisplayed());
+    }
+
+    //Profile
+    //Fees
+    //Exam
+    //Documents
+
+    //Parent--> My Profile--> profile
+    @FindBy(xpath = "(//a[@data-toggle='tab'])[1]")
+    public WebElement profileElement;
+
+    //Parent--> My Profile--> Fees
+    @FindBy(xpath = "(//a[@data-toggle='tab'])[2]")
+    private WebElement feesElement;
+
+    //Parent--> My Profile--> Exam
+    @FindBy(xpath = "(//a[@data-toggle='tab'])[3]")
+    private WebElement examElement;
+
+
+    //Parent--> My Profile--> Documents
+    @FindBy(xpath = "(//a[@data-toggle='tab'])[4]")
+    private WebElement documentsElement;
+
+    @FindBy(xpath = "(//h3[@class='pagetitleh2'])[1]")
+    private WebElement addressDetails;
+
+    @FindBy(xpath = "(//h3[@class='pagetitleh2'])[2]")
+    private WebElement parentGuardianDetail;
+
+    @FindBy(xpath = "(//h3[@class='pagetitleh2'])[3]")
+    private WebElement hostelDetails;
+
+    @FindBy(xpath = "(//h3[@class='pagetitleh2'])[4]")
+    private WebElement miscellaneousDetails;
+
+
+
+
+    public void parentMyProfileElementsVisiable2(){
+
+        Assert.assertTrue(profileElement.isDisplayed());
+        Assert.assertTrue(feesElement.isDisplayed());
+        Assert.assertTrue(examElement.isDisplayed());
+        Assert.assertTrue(documentsElement.isDisplayed());
+    }
+
+
+    public void profileElementsAssertMethod(){
+
+        Assert.assertTrue(addressDetails.isDisplayed());
+        Assert.assertTrue(parentGuardianDetail.isDisplayed());
+        Assert.assertTrue(hostelDetails.isDisplayed());
+        Assert.assertTrue(miscellaneousDetails.isDisplayed());
     }
 
 

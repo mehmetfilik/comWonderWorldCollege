@@ -1,3 +1,4 @@
+
 Feature:[US_045] User information change test
 
   Background:
@@ -17,9 +18,9 @@ Feature:[US_045] User information change test
     Then "username must contain a minimum of 5 characters." Verifies that the text appears.
     And The user closes the page
 
-  @us045
-  Scenario: If the user has entered a new user with the correct combination, the username should change successfully.
+
+  Scenario:[TC_002->US_045] If the user has entered a new user with the correct combination, the username should change successfully.
     Given The user enters the new username with the correct combination.
     And User clicks the save button
-    Then Username has been changed successfully. yazisinin görünür oldugu dogrular.
+    Then Username has been changed successfully. Verifies that the text is visible.
     And The user closes the page
