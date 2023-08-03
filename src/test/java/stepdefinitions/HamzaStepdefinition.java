@@ -221,7 +221,7 @@ public class HamzaStepdefinition {
         Select selectEditSection = new Select(dropdownEditSection);
         selectEditSection.selectByVisibleText("A");
 
-        actions.click(hamzaPage.studentEditFirstName).sendKeys("test").perform();
+        //actions.click(hamzaPage.studentEditFirstName).sendKeys("test").perform();
 
         WebElement dropdownEditGender = Driver.getDriver().findElement(By.name("gender"));
         Select selectEditGender = new Select(dropdownEditGender);
@@ -266,13 +266,13 @@ public class HamzaStepdefinition {
     }
 
     @And("User verifies that the edited information is saved by clicking the save button on the Edit page")
-    public void userVerifiesThatTheEditedInformationIsSavedByClickingTheSaveButtonOnTheEditPage() {
+    public void userVerifiesThatTheEditedInformationIsSavedByClickingTheSaveButtonOnTheEditPage() throws InterruptedException {
         //ReusableMethods.wait(2);
-
+        Thread.sleep(3000);
         String actualEditAlert = hamzaPage.studentEditSaveAlert.getText();
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        //WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
 
-        wait.until(ExpectedConditions.visibilityOf(hamzaPage.studentEditSaveAlert));
+        //wait.until(ExpectedConditions.visibilityOf(hamzaPage.studentEditSaveAlert));
         String expectedEditAlert = "Record Updated Successfully";
         Assert.assertTrue(actualEditAlert.contains(expectedEditAlert));
         Driver.getDriver().close();
@@ -456,6 +456,114 @@ public class HamzaStepdefinition {
 
       Assert.assertEquals(totalBalance,expectedFinallyTotalBalance);
 
+    }
+
+    //========================================================================================
+    //US_025
+
+
+    @Then("User verifies that the Fees Master page link is visible under the Fees Collection menu heading")
+    public void userVerifiesThatTheFeesMasterPageLinkIsVisibleUnderTheFeesCollectionMenuHeading () {
+        hamzaPage.adminFeesMasterIcon.isDisplayed();
+
+    }
+
+    @When("User clicks on the Fees Master link")
+    public void userClicksOnTheFeesMasterLink () {
+        hamzaPage.adminFeesMasterIcon.click();
+    }
+
+    @Then("User verifies that the feesmaster page is opened")
+    public void userVerifiesThatTheFeesmasterPageIsOpened () {
+        String actualFeesMasterUrl = Driver.getDriver().getCurrentUrl();
+        String expectedFeesMasterUrl = "feemaster";
+        Assert.assertTrue(actualFeesMasterUrl.contains(expectedFeesMasterUrl));
+    }
+
+    @And("User verifies the presence of {string} and {string} sections on the {string} page")
+    public void userVerifiesThePresenceOfAndSectionsOnThePage (String arg0, String arg1, String arg2){
+        hamzaPage.adminFeesMasterHead.isDisplayed();
+        hamzaPage.adminFeesGroupText.isDisplayed();
+        hamzaPage.adminFeesTypeText.isDisplayed();
+        hamzaPage.adminFeesDueDateText.isDisplayed();
+        hamzaPage.adminFeesAmountText.isDisplayed();
+        hamzaPage.adminFeesFineTypeText.isDisplayed();
+        hamzaPage.adminFeesNoneButton.isDisplayed();
+        hamzaPage.adminFeesPercentageButton.isDisplayed();
+        hamzaPage.adminFeesFixButton.isDisplayed();
+        hamzaPage.adminFeesPercentageText.isDisplayed();
+        hamzaPage.adminFeesFixAmountText.isDisplayed();
+        hamzaPage.adminFeesFeesMasterHead.isDisplayed();
+        hamzaPage.adminFeesFeesGroupText.isDisplayed();
+        hamzaPage.adminFeesFeesCodeText.isDisplayed();
+        hamzaPage.adminFeesFixListAmountText.isDisplayed();
+        hamzaPage.adminFeesListActionText.isDisplayed();
+
+    }
+
+    @And("User verifies the presence of the search box for filtering on the {string} page")
+    public void userVerifiesThePresenceOfTheSearchBoxForFilteringOnThePage(String arg0) {
+    hamzaPage.adminFeesListSearchBox.isDisplayed();
+    hamzaPage.adminFeesListSearchBox.isEnabled();
+
+    }
+
+    @And("User selects {string} from the {string} dropdown menu in the {string} window")
+    public void userSelectsFromTheDropdownMenuInTheWindow(String arg0, String arg1, String arg2) {
+        WebElement dropdownFeesGroup = Driver.getDriver().findElement(By.id("fee_groups_id"));
+        Select selectFeesGroup = new Select(dropdownFeesGroup);
+        selectFeesGroup.selectByVisibleText("hamzatest");
+    }
+
+    @And("User selects {string} as the {string} in the {string} window")
+    public void userSelectsAsTheInTheWindow(String arg0, String arg1, String arg2) {
+        WebElement dropdownFeesType = Driver.getDriver().findElement(By.id("feetype_id"));
+        Select selectFeesType = new Select(dropdownFeesType);
+        selectFeesType.selectByVisibleText("hamzatesttype");
+    }
+
+    @And("User enters {string} in the {string} field in the {string} window")
+    public void userEntersInTheFieldInTheWindow(String arg0, String arg1, String arg2) {
+    hamzaPage.adminFeesFeesMasterAmount.click();
+    actions.click(hamzaPage.adminFeesFeesMasterAmount).sendKeys("10000.00").perform();
+    }
+
+    @And("User clicks the {string} button in the {string} window and verifies successful saving")
+    public void userClicksTheButtonInTheWindowAndVerifiesSuccessfulSaving(String arg0, String arg1) {
+    hamzaPage.adminFeesFeesMasterSave.click();
+
+    }
+
+    @And("User clicks the edit icon for the last item in the {string} section")
+    public void userClicksTheEditIconForTheLastItemInTheSection(String arg0) throws InterruptedException {
+        Thread.sleep(3000);
+        hamzaPage.adminFeesFeesMasterEdit.click();
+
+    }
+
+    @And("User enters {string} in the {string} field in the edit window")
+    public void userEntersInTheFieldInTheEditWindow(String arg0, String arg1) throws InterruptedException {
+        Thread.sleep(4000);
+        actions.click(hamzaPage.adminFeesAmountEdit).sendKeys("20000");
+    }
+
+    @And("User clicks the {string} button in the edit window and verifies successful update")
+    public void userClicksTheButtonInTheEditWindowAndVerifiesSuccessfulUpdate(String arg0) throws InterruptedException {
+        hamzaPage.adminFeesEditSaveButton.click();
+        Thread.sleep(3000);
+        hamzaPage.adminFeesEditSaveSuccess.isDisplayed();
+    }
+
+    @And("User clicks the delete icon for the last held item in the {string} section")
+    public void userClicksTheDeleteIconForTheLastHeldItemInTheSection(String arg0) throws InterruptedException {
+        hamzaPage.adminFeesFeesDeleteIcon.click();
+        Thread.sleep(3000);
+        actions.sendKeys(Keys.ENTER);
+    }
+
+    @Then("User verifies that the last item in the {string} section is deleted")
+    public void userVerifiesThatTheLastItemInTheSectionIsDeleted(String arg0) {
+        Assert.assertFalse(hamzaPage.adminFeesFeesDeleteIcon.isDisplayed());
     }
 }
 

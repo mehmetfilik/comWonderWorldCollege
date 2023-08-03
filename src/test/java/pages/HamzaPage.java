@@ -344,8 +344,87 @@ public class HamzaPage extends Base {
     public WebElement adminFeesDueDateText;
 
     //Admin Fees Collection -> Amount Text
-    @FindBy (xpath =" Amount ($)")
+    @FindBy (xpath ="//*[text()='Amount (€)']")
     public WebElement adminFeesAmountText;
+
+    //Admin Fees Collection -> Fine Type Text
+    @FindBy (xpath ="//*[text()='Fine Type']")
+    public WebElement adminFeesFineTypeText;
+
+    //Admin Fees Collection -> Fine Type None Button
+    @FindBy (xpath ="(//*[@id='input-type-student'])[1]")
+    public WebElement adminFeesNoneButton;
+
+    //Admin Fees Collection -> Fine Type Percentage Button
+    @FindBy (xpath ="(//*[@id='input-type-student'])[2]")
+    public WebElement adminFeesPercentageButton;
+
+    //Admin Fees Collection -> Fine Type Fix Amount Button
+    @FindBy (id ="input-type-tutor")
+    public WebElement adminFeesFixButton;
+
+    //Admin Fees Collection -> Percentage
+    @FindBy (xpath ="//*[text()='Percentage (%)']")
+    public WebElement adminFeesPercentageText;
+
+    //Admin Fees Collection -> Fix Amount
+    @FindBy (xpath ="//*[text()='Fix Amount (€)']")
+    public WebElement adminFeesFixAmountText;
+
+    //Admin Fees Collection -> Fees Master List Head
+    @FindBy (xpath ="//*[text()='Fees Master List : 2022-23']")
+    public WebElement adminFeesFeesMasterHead;
+
+    //Admin Fees Collection -> Fees Group
+    @FindBy (xpath ="//*[@id=\"DataTables_Table_0\"]/thead/tr/th[1]")
+    public WebElement adminFeesFeesGroupText;
+
+    //Admin Fees Collection -> Fees Code
+    @FindBy (xpath ="//*[@id=\"DataTables_Table_0\"]/thead/tr/th[2]/div/div[1]")
+    public WebElement adminFeesFeesCodeText;
+
+    //Admin Fees Collection -> List Amount
+    @FindBy (xpath ="//*[@id=\"DataTables_Table_0\"]/thead/tr/th[2]/div/div[2]")
+    public WebElement adminFeesFixListAmountText;
+
+    //Admin Fees Collection -> List Action
+    @FindBy (xpath ="//*[text()='Action']")
+    public WebElement adminFeesListActionText;
+
+    //Admin Fees Collection -> List Search
+    @FindBy (xpath ="//*[@id=\"DataTables_Table_0_filter\"]/label/input")
+    public WebElement adminFeesListSearchBox;
+
+    //Admin Fees Collection -> Fees Master Amount
+    @FindBy (id ="amount")
+    public WebElement adminFeesFeesMasterAmount;
+
+    //Admin Fees Collection -> Fees Master Save
+    @FindBy (xpath ="//*[@id=\"form1\"]/div[2]/button")
+    public WebElement adminFeesFeesMasterSave;
+
+    //Admin Fees Collection -> Fees Master Edit
+    @FindBy (xpath ="//a[@href='https://qa.wonderworldcollege.com/admin/feemaster/edit/414']")
+    public WebElement adminFeesFeesMasterEdit;
+
+    //Admin Fees Collection -> Edit Amount Button
+    @FindBy (id ="amount")
+    public WebElement adminFeesAmountEdit;
+
+    //Admin Fees Collection -> Edit Save Button
+    @FindBy (xpath ="//*[@id=\"form1\"]/div[2]/button")
+    public WebElement adminFeesEditSaveButton;
+
+    //Admin Fees Collection -> Edit Save Success
+    @FindBy (xpath ="//*[text()='Record Updated Successfully']")
+    public WebElement adminFeesEditSaveSuccess;
+
+    //Admin Fees Collection -> Fees Delete Icon
+    @FindBy (xpath ="//a[@href='https://qa.wonderworldcollege.com/admin/feemaster/delete/414']")
+    public WebElement adminFeesFeesDeleteIcon;
+
+
+
 
 
 
