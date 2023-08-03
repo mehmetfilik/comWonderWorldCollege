@@ -38,7 +38,7 @@ public class SuatStepdefinitons {
     }
 
     @Then("Close the browser")
-    public void closeBrowser(){
+    public void closeTheBrowser(){
         commonPage.closeTheBrowser();
     }
 
@@ -203,10 +203,6 @@ public class SuatStepdefinitons {
         Assert.assertEquals(actualText,expectedText);
     }
 
-    @And("Close the browser")
-    public void closeTheBrowser() {
-        commonPage.closeTheBrowser();
-    }
 
     @And("Wait for {int} seconds")
     public void waitForSeconds(int saniye) {
