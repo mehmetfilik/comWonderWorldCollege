@@ -83,7 +83,10 @@ public class TahaStepdefinitons {
 
     @Then("Click cross icon for delete exam")
     public void clickCrossIconForDeleteExam() {
-        TahaPage.deleteButton.click();
+
         TahaPage.deleteButton.isDisplayed();
+        TahaPage.deleteButton.click();
+        Keys enter = Keys.ENTER;
+
     }
 }
