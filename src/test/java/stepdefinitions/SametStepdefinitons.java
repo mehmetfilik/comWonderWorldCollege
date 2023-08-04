@@ -4,6 +4,7 @@ import com.beust.ah.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -546,6 +547,186 @@ public class SametStepdefinitons {
     public void submittedIsVerified() {
         Assert.assertTrue(sametPage.submittedMessage.isDisplayed());
     }
+
+    @When("Click on the Course menu on the top bar and the user should be redirected to the Course page")
+    public void clickOnTheCourseMenuOnTheTopBarAndTheUSerShouldBeRedirectedToCoursePage() {
+        sametPage.course.click();
+        String redirectedURL = Driver.getDriver().getCurrentUrl();
+        String expectedURL = "https://qa.wonderworldcollege.com/page/course";
+
+        if (redirectedURL.contains(expectedURL)) {
+            System.out.println("You have been redirected to the correct page by clicking on the Course title");
+        } else {
+            System.out.println("The redirection to the page was not successful");
+        }
+    }
+
+
+    @Then("the course headings should be visible")
+    public void theCourseHeadingsShouldBeVisible() {
+        sametPage.engAndLit.isDisplayed();
+        sametPage.Mathematics.isDisplayed();
+        sametPage.Sciences.isDisplayed();
+        sametPage.SocialSciences.isDisplayed();
+        sametPage.History.isDisplayed();
+        sametPage.ArtsAndMusic.isDisplayed();
+        sametPage.HealtAndExercise.isDisplayed();
+        sametPage.Language.isDisplayed();
+        sametPage.ComputerScience.isDisplayed();
+
+    }
+
+    @And("there should be a Details button below each course heading")
+    public void thereShouldBeADetailsButtonBelowEachCourseHeading() {
+        sametPage.EngAndLitDetails.isDisplayed();
+        sametPage.MathDetails.isDisplayed();
+        sametPage.ScienceDetails.isDisplayed();
+        sametPage.SocScienceDetails.isDisplayed();
+        sametPage.HistoryDetails.isDisplayed();
+        sametPage.ArtsAndMusicDetails.isDisplayed();
+        sametPage.HaExScienceDetails.isDisplayed();
+        sametPage.ForeinLangDetails.isDisplayed();
+        sametPage.CompScienceDetails.isDisplayed();
+    }
+
+    @When("the Details button of any course is clicked")
+    public void theDetailsButtonOfAnyCourseIsClicked() {
+        sametPage.EngAndLitDetails.click();
+        sametPage.MathDetails.click();
+        sametPage.ScienceDetails.click();
+        sametPage.SocScienceDetails.click();
+        sametPage.HistoryDetails.click();
+        sametPage.ArtsAndMusicDetails.click();
+        sametPage.HaExScienceDetails.click();
+        sametPage.ForeinLangDetails.click();
+        sametPage.CompScienceDetails.click();
+    }
+
+    @And("the user should be redirected to the detailed page of the English and Literature")
+    public void theUserShouldBeRedirectedToTheDetailedPageOfTheEnglishandLiterature() {
+        sametPage.EngAndLitDetails.click();
+        String redirectedURL = Driver.getDriver().getCurrentUrl();
+        String expectedURL = "https://qa.wonderworldcollege.com/page/english-and-literature";
+
+        if (redirectedURL.contains(expectedURL)) {
+            System.out.println("The user was redirected to the relevant detail page");
+        } else {
+            System.out.println("could not be redirected to the page");
+        }
+        sametPage.course.click();
+    }
+
+    @Then("the user should be redirected to the detailed page of the Mathematics")
+    public void theUserShouldBeRedirectedToTheDetailedPageOfTheMathematics() {
+        sametPage.MathDetails.click();
+        String redirectedURL = Driver.getDriver().getCurrentUrl();
+        String expectedURL = "https://qa.wonderworldcollege.com/page/mathematics";
+
+        if (redirectedURL.contains(expectedURL)) {
+            System.out.println("The user was redirected to the relevant detail page");
+        } else {
+            System.out.println("could not be redirected to the page");
+        }
+        sametPage.course.click();
+    }
+
+    @Then("the user should be redirected to the detailed page of the Sciences")
+    public void theUserShouldBeRedirectedToTheDetailedPageOfTheSciences() {
+        sametPage.ScienceDetails.click();
+        String redirectedURL = Driver.getDriver().getCurrentUrl();
+        String expectedURL = "https://qa.wonderworldcollege.com/page/sciences";
+
+        if (redirectedURL.contains(expectedURL)) {
+            System.out.println("The user was redirected to the relevant detail page");
+        } else {
+            System.out.println("could not be redirected to the page");
+        }
+        sametPage.course.click();
+    }
+
+    @Then("the user should be redirected to the detailed page of the Social Sciences")
+    public void theUserShouldBeRedirectedToTheDetailedPageOfTheSocialSciences() {
+        sametPage.SocScienceDetails.click();
+        String redirectedURL = Driver.getDriver().getCurrentUrl();
+        String expectedURL = "https://qa.wonderworldcollege.com/page/social-sciences";
+
+        if (redirectedURL.contains(expectedURL)) {
+            System.out.println("The user was redirected to the relevant detail page");
+        } else {
+            System.out.println("could not be redirected to the page");
+        }
+        sametPage.course.click();
+    }
+
+    @Then("the user should be redirected to the detailed page of the History")
+    public void theUserShouldBeRedirectedToTheDetailedPageOfTheHistory() {
+        sametPage.HistoryDetails.click();
+        String redirectedURL = Driver.getDriver().getCurrentUrl();
+        String expectedURL = "https://qa.wonderworldcollege.com/page/history";
+
+        if (redirectedURL.contains(expectedURL)) {
+            System.out.println("The user was redirected to the relevant detail page");
+        } else {
+            System.out.println("could not be redirected to the page");
+        }
+        sametPage.course.click();
+    }
+
+    @Then("the user should be redirected to the detailed page of the Arts and Music")
+    public void theUserShouldBeRedirectedToTheDetailedPageOfTheArtsAndMusic() {
+        sametPage.ArtsAndMusicDetails.click();
+        String redirectedURL = Driver.getDriver().getCurrentUrl();
+        String expectedURL = "https://qa.wonderworldcollege.com/page/arts-and-music";
+
+        if (redirectedURL.contains(expectedURL)) {
+            System.out.println("The user was redirected to the relevant detail page");
+        } else {
+            System.out.println("could not be redirected to the page");
+        }
+        sametPage.course.click();
+    }
+
+    @Then("the user should be redirected to the detailed page of the Healts and Exercise Sciences")
+    public void theUserShouldBeRedirectedToTheDetailedPageOfTheHealtsAndExerciseSciences() {
+        sametPage.HaExScienceDetails.click();
+        String redirectedURL = Driver.getDriver().getCurrentUrl();
+        String expectedURL = "https://qa.wonderworldcollege.com/page/health-and-exercise-sciences";
+
+        if (redirectedURL.contains(expectedURL)) {
+            System.out.println("The user was redirected to the relevant detail page");
+        } else {
+            System.out.println("could not be redirected to the page");
+        }
+        sametPage.course.click();
+    }
+
+    @Then("the user should be redirected to the detailed page of the Foreign Language")
+    public void theUserShouldBeRedirectedToTheDetailedPageOfTheForeignLanguage() {
+        sametPage.ForeinLangDetails.click();
+        String redirectedURL = Driver.getDriver().getCurrentUrl();
+        String expectedURL = "https://qa.wonderworldcollege.com/page/foreign-language";
+
+        if (redirectedURL.contains(expectedURL)) {
+            System.out.println("The user was redirected to the relevant detail page");
+        } else {
+            System.out.println("could not be redirected to the page");
+        }
+        sametPage.course.click();
+    }
+
+    @Then("the user should be redirected to the detailed page of the Computer Science")
+    public void theUserShouldBeRedirectedToTheDetailedPageOfTheComputerScience() {
+        sametPage.CompScienceDetails.click();
+        String redirectedURL = Driver.getDriver().getCurrentUrl();
+        String expectedURL = "https://qa.wonderworldcollege.com/page/computer-science";
+
+        if (redirectedURL.contains(expectedURL)) {
+            System.out.println("The user was redirected to the relevant detail page");
+        } else {
+            System.out.println("could not be redirected to the page");
+        }
+    }
+
 }
 
 
