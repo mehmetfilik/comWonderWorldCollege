@@ -319,8 +319,11 @@ public class SuatPage extends Base{
     @FindBy(xpath="//input[@name='invoice_no']")
     public WebElement invoiceNoBox;
 
-    @FindBy(xpath="//input[@id=‘date']")
+    @FindBy(xpath="//input[@name='date']")
     public WebElement incomeDateBox;
+
+    @FindBy(xpath="//div[@class='DayPicker-Day' and text()='30']")
+    public WebElement spesicficDay;
 
     @FindBy(xpath="//input[@name='amount']")
     public WebElement amountBox;
