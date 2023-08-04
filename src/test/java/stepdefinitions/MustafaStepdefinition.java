@@ -306,7 +306,7 @@ public class MustafaStepdefinition {
     //**********************************************US_047******************************************//
     @Given("The user goes to the {string} website.")
     public void the_user_goes_to_the_website(String string) {
-        common.parentOrStudentLoginMethod("std119", "wonderworld123");
+        common.parentOrStudentLoginMethod("std142", "wonderworld123");
     }
 
     @Given("Clicks the Login button.")
