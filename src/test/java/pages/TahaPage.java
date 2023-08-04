@@ -4,9 +4,9 @@ import org.checkerframework.checker.signature.qual.FieldDescriptor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class TahaPage {
+public class TahaPage extends Base{
 
-    TahaPage tahaPage = new TahaPage();
+
 
 
     //"Exam Group" button under the "Examination" menu in teacher's panel sidebar

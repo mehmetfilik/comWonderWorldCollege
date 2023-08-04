@@ -1,3 +1,4 @@
+
 Feature: [US_013] As a user, I want the contact information of the school to be available on the homepage for easy access
 
 
