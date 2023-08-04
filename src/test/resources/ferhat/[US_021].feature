@@ -1,3 +1,4 @@
+
 Feature: [US_021] As an administrator (admin), I want to be able to view online admission applications and
   complete the enrollment process for the applying students from the admin panel.
 
@@ -141,10 +142,9 @@ Feature: [US_021] As an administrator (admin), I want to be able to view online 
     Then Verifies that it redirects to the Edit and Enroll page
     Then Edit Online Admission is displayed
     Then The information filled in by the student in the Online Admission form is displayed
-    And Save button is pressed
 
 
-
+  @12
 
   Scenario: [TC_0011-->21] The form, student information (Edit Online Registration, Fee Information, Transportation Information, Parent Information,
   Address Information, Miscellaneous Information) is entered and the save button is clicked.

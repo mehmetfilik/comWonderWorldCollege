@@ -41,7 +41,7 @@ Feature: [US_028] As an administrator (admin), I want to add new sources of inco
     And Verify the existence of search box to enable searching specific data
     And Close the browser
 
-  @wip
+  @Test
   Scenario: [TC_005 --> US_028] The amount of records that was seen in one page in "Income List" has to be changeable
     And Click on the Income menu on the sidebar
     When Click on the Add Income page link
