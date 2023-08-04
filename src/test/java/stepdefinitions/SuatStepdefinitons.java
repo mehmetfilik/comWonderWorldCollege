@@ -37,11 +37,6 @@ public class SuatStepdefinitons {
         Assert.assertEquals(actualURl, expectedUrl);
     }
 
-    @Then("Close the browser")
-    public void closeTheBrowser(){
-        commonPage.closeTheBrowser();
-    }
-
     @And("Verify that Admission No and Exam text box are visible and are mandatory fields for data input.")
     public void verifyAdmissionAndExamTextBox(){
         Assert.assertTrue(suatPage.admissionNoBox.isDisplayed());
@@ -202,7 +197,6 @@ public class SuatStepdefinitons {
 
         Assert.assertEquals(actualText,expectedText);
     }
-
 
     @And("Wait for {int} seconds")
     public void waitForSeconds(int saniye) {

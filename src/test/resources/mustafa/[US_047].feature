@@ -1,4 +1,4 @@
-@mustafa
+
 Feature: [US_047]  As a user, I should be able to access the "Homework" page and make changes to my assignments  When entering the Student Panel
 
   Background:
@@ -15,6 +15,7 @@ Feature: [US_047]  As a user, I should be able to access the "Homework" page and
     Then The Action section should be accessible and a message can be sent.
     And The user closes the page
 
+  @mustafa
   Scenario: [TC_003->US_047] User should be able to add new assignment.
     And User clicks Daily Assignment button
     And Click on the +Daily Assignment button
