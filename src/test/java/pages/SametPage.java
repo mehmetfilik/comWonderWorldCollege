@@ -127,5 +127,42 @@ public class SametPage extends Base  {
     @FindBy(xpath = "//span[@class=\"text-success\"]")
     public WebElement submittedMessage;
 
+    @FindBy(xpath = "//body/div[5]/div/div/div[1]/div/div[1]/div/div[2]/h4")
+    public WebElement engAndLit;
+    @FindBy(xpath = "//body/div[5]/div/div/div[1]/div/div[2]/div/div/h4")
+    public WebElement Mathematics;
+    @FindBy(xpath = "//body/div[5]/div/div/div[1]/div/div[3]/div/div/h4")
+    public WebElement Sciences;
+    @FindBy(xpath = "//body/div[5]/div/div/div[1]/div/div[4]/div/div/h4")
+    public WebElement SocialSciences;
+    @FindBy(xpath = "//body/div[5]/div/div/div[1]/div/div[5]/div/div/h4")
+    public WebElement History;
+    @FindBy(xpath = "//body/div[5]/div/div/div[1]/div/div[6]/div/div/h4")
+    public WebElement ArtsAndMusic;
+    @FindBy(xpath = "//body/div[5]/div/div/div[1]/div/div[7]/div/div/h4")
+    public WebElement HealtAndExercise;
+    @FindBy(xpath = "//body/div[5]/div/div/div[1]/div/div[8]/div/div/h4")
+    public WebElement Language;
+    @FindBy(xpath = "//body/div[5]/div/div/div[1]/div/div[9]/div/div/h4")
+    public WebElement ComputerScience;
+    @FindBy(xpath = "//a[@href=\"../page/english-and-literature\"]")
+    public WebElement EngAndLitDetails;
+    @FindBy(xpath = "//a[@href=\"../page/mathematics\"]")
+    public WebElement MathDetails;
+    @FindBy(xpath = "//a[@href=\"../page/sciences\"]")
+    public WebElement ScienceDetails;
+    @FindBy(xpath = "//a[@href=\"../page/social-sciences\"]")
+    public WebElement SocScienceDetails;
+    @FindBy(xpath = "//a[@href=\"../page/history\"]")
+    public WebElement HistoryDetails;
+    @FindBy(xpath = "//a[@href=\"../page/arts-and-music\"]")
+    public WebElement ArtsAndMusicDetails;
+    @FindBy(xpath = "//a[@href=\"../page/health-and-exercise-sciences\"]")
+    public WebElement HaExScienceDetails;
+    @FindBy(xpath = "//a[@href=\"../page/foreign-language\"]")
+    public WebElement ForeinLangDetails;
+    @FindBy(xpath = "//a[@href=\"../page/computer-science\"]")
+    public WebElement CompScienceDetails;
+
 
 }
