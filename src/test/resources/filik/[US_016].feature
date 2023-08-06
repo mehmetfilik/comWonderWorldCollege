@@ -25,7 +25,7 @@ Feature: [US_016] As a registered user (student/parent), I want to have access t
 
     Then Close the browser
 
-  @test
+  @bug
   Scenario: [TC_004-->US_016] Password Reset Functionality on 'userlogin' and 'ufpassword' Pages
     Then User Should Navigate to homepage
     Then Verify and Click on the Login Button on the Homepage
