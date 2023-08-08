@@ -59,6 +59,7 @@ public class FilikStepdefinition {
     @And("Verify and Click on the Front Site Button on the User Login Page")
     public void verifyAndClickOnTheFrontSiteButtonOnTheUserLoginPage() {
         filikPage.forgotPasswordMethod();
+
     }
 
     @Then("Close the browser")
